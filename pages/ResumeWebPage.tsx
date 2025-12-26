@@ -68,7 +68,7 @@ const ResumeWebPage: React.FC = () => {
                         <li>Developed and deployed multiple Al tools to streamline educational content, including a game creation engine
                             for educators and 4+ tools for aligning lessons to Spanish/American/CEFR standards</li>
                         <li>Created a new personality for AINARA’s AI chatbot, prioritizing coding and an educational tone</li>
-                        <li>Designed a comprehensive Spanish learning curriculum (Pre-Al to B2) integrating activities and strategies</li>
+                        <li>Designed a comprehensive Spanish learning curriculum (Pre-A1 to B2) integrating activities and strategies</li>
                     </ul>
                 </Entry>
                 <Entry title="Marist University Digital Education/IT Team Member" pills={['Full Time Work', 'Summer 2025']} location="POUGHKEEPSIE, NEW YORK">
