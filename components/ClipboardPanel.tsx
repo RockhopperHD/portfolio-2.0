@@ -10,7 +10,7 @@ interface ClipboardPanelProps {
 const ClipboardPanel: React.FC<ClipboardPanelProps> = ({ isVisible, onClose, children }) => {
   return (
     <>
-      <div 
+      <div
         className={`fixed inset-0 bg-black/50 z-[1550] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         onClick={onClose}
       />
@@ -18,18 +18,18 @@ const ClipboardPanel: React.FC<ClipboardPanelProps> = ({ isVisible, onClose, chi
         className={`fixed left-1/2 -translate-x-1/2 w-[90%] max-w-2xl h-auto max-h-[80vh] bg-accent-pale text-light-text rounded-t-2xl shadow-2xl z-[1600] transition-transform duration-400 ease-in-out p-5 pb-12 overflow-y-auto ${isVisible ? 'translate-y-0 bottom-0' : 'translate-y-full bottom-0'}`}
       >
         <div className="prose-styles">
-            {children}
+          {children}
         </div>
         <button
           onClick={onClose}
-          className="absolute bottom-3 right-4 bg-emphasis hover:bg-emphasis-darker text-dark-text border border-emphasis-darker rounded-full w-8 h-8 flex items-center justify-content text-xl font-bold transition-colors"
+          className="absolute bottom-3 right-4 bg-emphasis hover:bg-emphasis-darker text-dark-text border border-emphasis-darker rounded-full w-8 h-8 flex items-center justify-center text-xl font-bold transition-colors"
           title="Close Clipboard"
         >
           &times;
         </button>
       </div>
       {/* FIX: Removed non-standard 'jsx' prop from the style tag. */}
-       <style>{`
+      <style>{`
         .prose-styles h4 {
             margin-top: 0;
             margin-bottom: 0.75rem;
