@@ -1,5 +1,5 @@
 {
   "name": "Owen Whelan's Portfolio",
-  "description": "A dynamic and interactive personal portfolio website for Owen Whelan, rebuilt in React. It showcases his skills, work experience, and projects in AI, education, and language. This new version features a responsive design, interactive components, and routing for a seamless user experience.\n\n**How to add your Resumé PDF:**\nTo include your resumé PDF, place the file named `OwenWhelan_Resume.pdf` into the `public/` directory at the root of your project. The application is configured to look for it there. If you don't have a `public` directory, create one next to your `src` folder.",
+  "description": "A dynamic and interactive personal portfolio website for Owen Whelan, rebuilt in React. It showcases his skills, work experience, and projects in AI, education, and language. This new version features a responsive design, interactive components, and routing for a seamless user experience.",
   "requestFramePermissions": []
 }

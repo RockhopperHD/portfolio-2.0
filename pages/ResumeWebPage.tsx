@@ -58,79 +58,65 @@ const ResumeWebPage: React.FC = () => {
 
                 {/* Summary */}
                 <p className="text-center my-4">
-                    Innovative honors student merging language, education, and AI to build tools that empower learners and educators worldwide. Driven by curiosity, collaboration, and a passion for shaping the future of learning through technology.
+                    Honors student merging language, education, and AI to build global learning tools. Passionate about shaping the future of EdTech through curiosity and collaboration.
                 </p>
 
                 {/* Work Experience */}
                 <SectionHeader title="Work Experience" />
-                <Entry title="Smile & Learn, AINARA" pills={['Part Time Internship', 'Fall 2025']} location="MADRID, SPAIN">
+                <Entry title="Smile and Learn Intern: Artificial Intelligence & BeBilingual Teams" pills={['Part Time Internship', 'Fall 2025']} location="MADRID, SPAIN">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Developed and deployed multiple Al tools to streamline educational content, including a game creation engine
-                            for educators and 4+ tools for aligning lessons to Spanish/American/CEFR standards</li>
-                        <li>Created a new personality for AINARA’s AI chatbot, prioritizing coding and an educational tone</li>
-                        <li>Designed a comprehensive Spanish learning curriculum (Pre-A1 to B2) integrating activities and strategies</li>
+                        <li>Deployed AI tools to streamline content, including a game engine and 4+ tools aligning lessons to Spanish, American, and CEFR standards</li>
+                        <li>Engineered AINARA chatbot personality, prioritizing coding capabilities and an educational tone</li>
+                        <li>Designed comprehensive Pre-A1 to B2 Spanish curriculum integrating targeted learning strategies</li>
                     </ul>
                 </Entry>
                 <Entry title="Marist University Digital Education/IT Team Member" pills={['Full Time Work', 'Summer 2025']} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Created 8+ resources for faculty and students to understand artificial intelligence and responsible, efficient use</li>
-                        <li>Contacted, coordinated, interviewed, and edited video of 8 faculty members about their use of generative AI</li>
+                        <li>Created 8+ resources guiding faculty and students on responsible, efficient AI usage</li>
+                        <li>Coordinated, interviewed, and edited video features of 8 faculty members regarding their generative AI use</li>
                     </ul>
                 </Entry>
                 <Entry title="Rockland BOCES Substitute Teaching Assistant" pills={['Contract Work', '2025']} location="CLARKSTOWN, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Assisted full-time teachers in instructing neurodivergent students during full, 6-hour instructional days</li>
+                        <li>Assisted teachers instructing neurodivergent students during full-day sessions</li>
                     </ul>
                 </Entry>
 
                 {/* Educational Experience */}
                 <SectionHeader title="Educational Experience" />
-                <Entry title="Marist University, Honors Student" pills={['2023 - Present', '3.9 GPA']} location="POUGHKEEPSIE, NEW YORK">
+                <Entry title="Marist University, Honors Student" pills={['Full Time Student', 'Fall 2023 - Spring 2027']} location="POUGHKEEPSIE, NEW YORK and MADRID, SPAIN">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Major in Adolescent Education/Spanish, minor in applied AI, expected bachelor's/master's in 2027/2028</li>
-                    </ul>
-                </Entry>
-                <Entry title="Universidad Carlos III de Madrid International School" pills={['Fall 2025']} location="MADRID, SPAIN">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Studying abroad opportunity living with host family, studying in Spanish-only classes</li>
+                        <li>Major in adolescent education & Spanish, minor in Applied Al (B.A./M.A. expected 2027/2028), 3.9 GPA</li>
+                        <li>Semester Abroad: Universidad Carlos III de Madrid (Fall 2025); completed 16-hr/wk internship and coursework entirely in Spanish</li>
                     </ul>
                 </Entry>
 
                 {/* Research and Presentational Experience */}
-                <SectionHeader title="Research and Presentational Experience" />
-                <Entry title="Publication for International Technology, Education and Development (INTED)" pills={['2025']} location="VALENCIA, SPAIN">
+                <SectionHeader title="Research and Presentation Experience" />
+                <Entry title="Publication for International Technology, Education and Development (INTED)" pills={['Project from Winter 2024 to Spring 2025', 'Presented in March 2025']} location="VALENCIA, SPAIN">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Presented to exploratory research and paper on AI and note-taking international audience of 30+ academics</li>
+                        <li>Presented exploratory paper on AI and note-taking to an international audience of 30+ academics</li>
                     </ul>
                 </Entry>
-                <Entry title="Marist+AI Academic Group" pills={['2024 - Present']} location="POUGHKEEPSIE, NEW YORK">
+                <Entry title="Marist+AI Academic Group" pills={['2024 - 2025']} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Collaborated with faculty to develop an AI framework at Marist with an internal and external presence</li>
+                        <li>Collaborated with faculty to develop a comprehensive internal and external AI framework</li>
                     </ul>
                 </Entry>
-                <Entry title="ALOUD Conference" pills={["2025"]} location="POUGHKEEPSIE, NEW YORK">
+                <Entry title="Other Academic Conferences" pills={["Various"]} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Developed a language-learning video game for K-12 teachers with 2 modes and 4 languages</li>
-                    </ul>
-                </Entry>
-                <Entry title="CURSCA & Hudson Valley AI Summit" pills={["2025"]} location="POUGHKEEPSIE, NEW YORK">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Facilitated discussion and presented poster research</li>
+                        <li>ALOUD (2025): Developed a language-learning video game for K–12 teachers with 2 modes and 4 languages</li>
+                        <li>CURSCA (2025) & Hudson Valley AI Summit (2025): Facilitated discussion and presented poster research</li>
                     </ul>
                 </Entry>
 
-                {/* Extracurriculars */}
-                <SectionHeader title="Extracurriculars" />
-                <Entry title="Marist Circle" pills={['2023 - Present']} location="POUGHKEEPSIE, NEW YORK">
+                {/* Extracurricular Experience */}
+                <SectionHeader title="Extracurricular Experience" />
+                <Entry title="Student Newspaper, the Marist Circle" pills={['2023 - Present']} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Total authorship of 15+ articles with editing and writing experience, mentored and guided other writers</li>
-                        <li><strong>Co-Features Editor</strong> (2024-2025): Edited up to 3 articles per issue, continued writing, distribution</li>
-                        <li><strong>Staff Writer</strong> (2023-2024): Pitched stories, coordinated team assignments, assisted in cross-campus distribution</li>
-                    </ul>
-                </Entry>
-                <Entry title="Marist Games Society - Subcommittee Leader" pills={['2024-Present']} location="POUGHKEEPSIE, NEW YORK AND VIRTUAL">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Coordinating and helping new students integrate into gaming groups, leading and coordination of own group</li>
+                        <li>Authored 15+ articles and mentored junior writers on editing and composition</li>
+                        <li><strong>Co-Features Editor</strong> (2024 - Present): Edited up to 3 articles per issue, continued writing, distribution</li>
+                        <li><strong>Staff Writer</strong> (2023 - 2024): Pitched stories, coordinated assignments, and assisted with campus distribution</li>
                     </ul>
                 </Entry>
 
@@ -138,7 +124,7 @@ const ResumeWebPage: React.FC = () => {
                 <SectionHeader title="Awards" />
                 <div className="space-y-1">
                     <div className="flex justify-between items-baseline flex-wrap">
-                        <p>Dean's List, Marist University (2024, 2025; 4x)</p>
+                        <p>Dean’s List, Marist University (2024, 2025; 4x)</p>
                         <span className="text-xs font-mono text-light-text/90 font-bold text-right pl-4 flex-shrink-0">POUGHKEEPSIE, NEW YORK</span>
                     </div>
                     <div className="flex justify-between items-baseline flex-wrap">
@@ -146,29 +132,16 @@ const ResumeWebPage: React.FC = () => {
                         <span className="text-xs font-mono text-light-text/90 font-bold text-right pl-4 flex-shrink-0">POUGHKEEPSIE, NEW YORK</span>
                     </div>
                     <div className="flex justify-between items-baseline flex-wrap">
-                        <p>New York State Seal of Biliteracy (Spanish) (2023)</p>
-                        <span className="text-xs font-mono text-light-text/90 font-bold text-right pl-4 flex-shrink-0">NANUET, NEW YORK</span>
-                    </div>
-                    <div className="flex justify-between items-baseline flex-wrap">
-                        <p>National Honors Society (2023)</p>
+                        <p>New York State Seal of Biliteracy (Spanish) and National Honors Society (2023)</p>
                         <span className="text-xs font-mono text-light-text/90 font-bold text-right pl-4 flex-shrink-0">NANUET, NEW YORK</span>
                     </div>
                 </div>
 
                 {/* Other Skills */}
                 <SectionHeader title="Other Skills" />
-                <SkillItem title="Productivity Software">
-                    Advanced formatting in the Google Suite, Microsoft Suite, and Notion. Website building and deployment using AI tools.
-                </SkillItem>
-                <SkillItem title="Generative Artificial Intelligence">
-                    Strong knowledge of prominent AI tools and innovative applications, such as coding with AI and managing coding projects alongside AI tools. Deployed a variety of interactive projects developed with AI, including personal websites, educational games, and other tools.
-                </SkillItem>
-                <SkillItem title="Creative work">
-                    Graphic design (Photoshop, Canva) of infographics and informational documents. Capable in digital illustration and icon design. Experience in creating templates, educational materials, and functional graphics.
-                </SkillItem>
-                <SkillItem title="Spanish">
-                    Conversational, written, and professional communication of the Spanish language. Understanding and knowledge of CEFR and ACTFL language learning standards.
-                </SkillItem>
+                <p className="mt-2 text-light-text/90">
+                    Generative artificial intelligence, graphic design, productivity software, development and deployment of software tools. Communicative, quick, and innovative. Open-minded to learning new tools and ideas. Enjoys and accepts challenges involving learning and developing new solutions. Readily accepts & applies feedback.
+                </p>
             </div>
         </SubPageLayout>
     );

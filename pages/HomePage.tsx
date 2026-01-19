@@ -13,8 +13,8 @@ const HomePage: React.FC = () => {
 
     return (
         <div>
-            <div className="bg-dark-gray-bg py-10 px-4 sm:px-10" style={{ backgroundImage: "repeating-linear-gradient( 45deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02) 10px, transparent 10px, transparent 20px )" }}>
-                <div className="bg-soft-gray-bg text-light-text p-6 sm:p-8 rounded-lg text-center font-normal text-base sm:text-lg shadow-lg max-w-4xl mx-auto">
+            <div className="bg-dark-gray-bg py-10 px-4 sm:px-6" style={{ backgroundImage: "repeating-linear-gradient( 45deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02) 10px, transparent 10px, transparent 20px )" }}>
+                <div className="bg-soft-gray-bg text-light-text p-6 sm:p-8 rounded-lg text-center font-normal text-base sm:text-lg shadow-lg max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto">
                     I'm a motivated, dedicated individual who uses modern technology to research what's new in education and understand the world of language and communication a bit better, for myself and for others.
                 </div>
             </div>
@@ -43,7 +43,7 @@ const HomePage: React.FC = () => {
 
                 <div className="relative w-full bg-light-bg text-light-text py-2 overflow-hidden whitespace-nowrap border-y border-black cursor-pointer group" onClick={() => navigate('/skills')}>
                     <div className="flex w-max animate-scroll-left group-hover:[animation-play-state:paused]">
-                        {[...Array(2)].map((_, i) => (
+                        {[...Array(10)].map((_, i) => (
                             <React.Fragment key={i}>
                                 <span className="inline-block mx-5 font-medium">AI in Education</span>
                                 <span className="inline-block mx-5 font-medium">Spanish</span>
@@ -59,7 +59,7 @@ const HomePage: React.FC = () => {
                             </React.Fragment>
                         ))}
                     </div>
-                     <div className="absolute inset-0 bg-[rgba(85,60,40,0.75)] flex justify-center items-center text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-0 bg-[rgba(85,60,40,0.75)] flex justify-center items-center text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         Click for more on my skills
                     </div>
                 </div>
@@ -91,8 +91,8 @@ const HomePage: React.FC = () => {
               }
                .button-style:active { transform: scale(0.98); }
                
-               @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-                .animate-scroll-left { animation: scroll-left 40s linear infinite; }
+                @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+                .animate-scroll-left { animation: scroll-left 200s linear infinite; }
             `}</style>
         </div>
     );

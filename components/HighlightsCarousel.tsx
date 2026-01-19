@@ -12,7 +12,7 @@ const HighlightsCarousel: React.FC = () => {
         }
         return PORTFOLIO_ITEMS.filter(item => item.category.includes(activeFilter));
     }, [activeFilter]);
-    
+
     const handleFilterClick = useCallback((filter: string) => {
         setActiveFilter(filter);
         setActiveIndex(0);
@@ -37,9 +37,9 @@ const HighlightsCarousel: React.FC = () => {
 
     return (
         <div className="w-full flex flex-col items-center py-5">
-            <div className="w-full max-w-4xl px-4 mb-4">
-                 <p className="text-light-text text-left italic mb-3">Click the arrows to browse my experiences...</p>
-                 <div className="flex items-center justify-center gap-4 flex-wrap bg-dark-gray-bg/50 p-3 rounded-lg">
+            <div className="w-full max-w-4xl xl:max-w-6xl 2xl:max-w-7xl px-4 mb-4">
+                <p className="text-light-text text-left italic mb-3">Click the arrows to browse my experiences...</p>
+                <div className="flex items-center justify-center gap-4 flex-wrap bg-dark-gray-bg/50 p-3 rounded-lg">
                     <span className="font-semibold text-light-text text-sm sm:text-base">Filter:</span>
                     <div className="flex gap-2 flex-wrap justify-center">
                         <FilterButton category="all" label="All" />
@@ -50,7 +50,7 @@ const HighlightsCarousel: React.FC = () => {
                 </div>
             </div>
 
-            <div className="relative w-full max-w-4xl h-[450px] flex items-center justify-center px-2">
+            <div className="relative w-full max-w-4xl xl:max-w-6xl 2xl:max-w-7xl h-[450px] xl:h-[550px] 2xl:h-[650px] flex items-center justify-center px-2">
                 <button
                     onClick={goToPrev}
                     aria-label="Previous item"
@@ -60,10 +60,10 @@ const HighlightsCarousel: React.FC = () => {
                     <i className="fas fa-chevron-left"></i>
                 </button>
 
-                <div className="relative w-full h-full max-w-2xl flex items-center justify-center" style={{ perspective: '1000px' }}>
+                <div className="relative w-full h-full max-w-2xl xl:max-w-3xl 2xl:max-w-4xl flex items-center justify-center" style={{ perspective: '1000px' }}>
                     {filteredItems.length > 0 ? (
                         filteredItems.map((item, index) => {
-                             let offset = index - activeIndex;
+                            let offset = index - activeIndex;
                             const N = filteredItems.length;
                             if (N > 2 && Math.abs(offset) > N / 2) {
                                 offset = offset > 0 ? offset - N : offset + N;
@@ -77,16 +77,16 @@ const HighlightsCarousel: React.FC = () => {
                             return (
                                 <div
                                     key={item.id}
-                                    className="absolute w-full h-full max-w-2xl bg-dark-gray-bg border-2 border-medium-gray-bg rounded-2xl shadow-lg flex flex-col overflow-hidden transition-transform duration-500 ease-out"
+                                    className="absolute w-full h-full max-w-2xl xl:max-w-3xl 2xl:max-w-4xl bg-dark-gray-bg border-2 border-medium-gray-bg rounded-2xl shadow-lg flex flex-col overflow-hidden transition-transform duration-500 ease-out"
                                     style={{ transform, opacity, zIndex, pointerEvents }}
                                 >
                                     <div className="flex flex-col h-full">
                                         <div className="flex-grow p-6 sm:p-8 overflow-y-auto">
-                                            <h2 className="text-2xl sm:text-3xl font-bold text-light-text border-b-2 border-medium-gray-bg pb-2 mb-4 flex items-center gap-x-4">
-                                                <span className="text-4xl">{item.icon}</span>
+                                            <h2 className="text-2xl sm:text-3xl xl:text-4xl font-bold text-light-text border-b-2 border-medium-gray-bg pb-2 mb-4 flex items-center gap-x-4">
+                                                <span className="text-4xl xl:text-5xl">{item.icon}</span>
                                                 <span>{item.content.heading}</span>
                                             </h2>
-                                            <div className="text-light-text/90 space-y-4 prose">
+                                            <div className="text-base sm:text-lg xl:text-xl text-light-text/90 space-y-4 prose">
                                                 {typeof item.content.description === 'string' ? <p>{item.content.description}</p> : item.content.description}
                                             </div>
                                         </div>
@@ -102,7 +102,7 @@ const HighlightsCarousel: React.FC = () => {
                             );
                         })
                     ) : (
-                         <div className="flex items-center justify-center h-full text-center text-medium-gray-bg p-4">
+                        <div className="flex items-center justify-center h-full text-center text-medium-gray-bg p-4">
                             <p>No items match the selected filter.</p>
                         </div>
                     )}
@@ -118,7 +118,7 @@ const HighlightsCarousel: React.FC = () => {
                 </button>
             </div>
             {/* FIX: Removed non-standard 'jsx' prop from the style tag. */}
-             <style>{`
+            <style>{`
               .prose p {
                   margin-bottom: 1rem;
               }

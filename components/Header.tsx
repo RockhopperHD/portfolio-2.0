@@ -5,7 +5,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
-    
+
     const handleContactClick = () => {
         const footer = document.getElementById('page-footer');
         footer?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -24,9 +24,13 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                         <i className="fa-solid fa-atom"></i>
                         <span className="nav-button-label">Skills</span>
                     </button>
-                    <button onClick={() => onNavigate('/my-work')} className="nav-button" title="My Work">
-                        <i className="fa-solid fa-rocket"></i>
-                        <span className="nav-button-label">My Work</span>
+                    <button onClick={() => onNavigate('/experience')} className="nav-button" title="Experience">
+                        <i className="fa-solid fa-briefcase"></i>
+                        <span className="nav-button-label">Experience</span>
+                    </button>
+                    <button onClick={() => onNavigate('/projects')} className="nav-button" title="Projects">
+                        <i className="fa-solid fa-laptop-code"></i>
+                        <span className="nav-button-label">Projects</span>
                     </button>
                     <button onClick={() => onNavigate('/resume')} className="nav-button" title="Résumé (Web)">
                         <i className="fa-solid fa-file-lines"></i>

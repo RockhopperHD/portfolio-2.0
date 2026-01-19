@@ -16,6 +16,7 @@ export interface PortfolioItem {
 export interface SoftwareSkill {
   title: string;
   name: string;
+  subtitle: string;
   description: string;
 }
 

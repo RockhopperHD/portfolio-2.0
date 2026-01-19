@@ -48,7 +48,8 @@ const SkillsPage: React.FC = () => {
                     <div className="bg-dark-gray-bg p-6 rounded-lg border border-medium-gray-bg shadow-lg flex flex-col justify-start min-h-[300px] transition-all duration-300">
                         {selectedSkill ? (
                             <>
-                                <h4 className="text-xl font-bold mb-3">{selectedSkill.title}</h4>
+                                <h4 className="text-xl font-bold mb-1">{selectedSkill.title}</h4>
+                                <p className="text-sm text-emphasis italic mb-3">{selectedSkill.subtitle}</p>
                                 <p className="text-light-text text-left flex-grow">{selectedSkill.description}</p>
                             </>
                         ) : (
@@ -61,31 +62,31 @@ const SkillsPage: React.FC = () => {
 
                 <SectionHeader icon="fa-comments" text="Communication Skills" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                     <div className="bg-soft-gray-bg p-6 rounded-lg border border-medium-gray-bg shadow-lg">
+                    <div className="bg-soft-gray-bg p-6 rounded-lg border border-medium-gray-bg shadow-lg">
                         <h4 className="text-xl font-bold mb-4">English</h4>
                         <ul className="list-none p-0 space-y-3">
-                           <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Academic Writing</span><span className="pill">INTED</span><span className="pill">CURSCA</span></li>
-                           <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Interviewing &amp; Coordination</span><span className="pill">Digital Ed Intern</span></li>
-                           <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Fast &amp; clear communication</span><span className="pill">University Work</span></li>
-                           <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Journalism writing</span><span className="pill">Marist Circle</span></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Academic Writing</span><span className="pill">INTED</span><span className="pill">CURSCA</span></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Interviewing &amp; Coordination</span><span className="pill">Digital Ed Intern</span></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Fast &amp; clear communication</span><span className="pill">University Work</span></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Journalism writing</span><span className="pill">Marist Circle</span></li>
                         </ul>
                         <p className="text-sm text-light-text/80 mt-4">Clear prose, editing for structure, and audience-aware tone across academic, journalistic, and instructional contexts.</p>
                     </div>
                     <div className="bg-soft-gray-bg p-6 rounded-lg border border-medium-gray-bg shadow-lg">
                         <h4 className="text-xl font-bold mb-4">Spanish</h4>
-                         <ul className="list-none p-0 space-y-3">
-                           <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Time abroad: interpersonal communication</span><span className="pill">Abroad</span></li>
-                           <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Experience tutoring and teaching</span><span className="pill">Tutoring</span></li>
-                           <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Self-directed tools for learning</span><span className="pill">ALOUD</span></li>
+                        <ul className="list-none p-0 space-y-3">
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Time abroad: interpersonal communication</span><span className="pill">Abroad</span></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Experience tutoring and teaching</span><span className="pill">Tutoring</span></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Self-directed tools for learning</span><span className="pill">ALOUD</span></li>
                         </ul>
-                         <p className="text-sm text-light-text/80 mt-4">Practical Spanish experience through study abroad and tutoring; emphasis on clear, respectful interaction.</p>
+                        <p className="text-sm text-light-text/80 mt-4">Practical Spanish experience through study abroad and tutoring; emphasis on clear, respectful interaction.</p>
                     </div>
-                     <div className="bg-soft-gray-bg p-6 rounded-lg border border-medium-gray-bg shadow-lg md:col-span-2">
+                    <div className="bg-soft-gray-bg p-6 rounded-lg border border-medium-gray-bg shadow-lg md:col-span-2">
                         <h4 className="text-xl font-bold mb-3">Communicative Basics</h4>
                         <p className="mb-4">My time abroad, in the classroom, and working with people from a variety of backgrounds has given me the ability to communicate appropriately and respond responsibly in a variety of contexts.</p>
-                         <div className="flex gap-2 flex-wrap">
+                        <div className="flex gap-2 flex-wrap">
                             <Pill text="BOCES TA" /> <Pill text="Marist Circle" /> <Pill text="Abroad" /> <Pill text="University Work" />
-                         </div>
+                        </div>
                     </div>
                 </div>
 
@@ -96,18 +97,18 @@ const SkillsPage: React.FC = () => {
                         <p>I have experience leading teams and individuals to success, whether it's through my work at the newspaper or my experience tutoring students. I'm comfortable taking initiative and helping to define the tone or meaning of a group or project.</p>
                     </div>
                     <div className="bg-soft-gray-bg p-6 rounded-lg border border-medium-gray-bg shadow-lg">
-                         <h4 className="text-xl font-bold mb-3"><i className="fa-solid fa-flask mr-2"></i>Experimentation</h4>
+                        <h4 className="text-xl font-bold mb-3"><i className="fa-solid fa-flask mr-2"></i>Experimentation</h4>
                         <p>Trying new things is a part of my natural style of development. I look forward to using new tools, adapt quickly, and enjoy the process of creating things that stand out as innovative.</p>
                     </div>
                 </div>
-                 <p className="text-center text-light-text my-6">My mindset as a leader, learner, and team member all follow the principles of being involved and making myself heard while also giving others a voice and seeing things from a variety of lenses.</p>
-                 <div className="bg-soft-gray-bg p-6 rounded-lg border border-emphasis shadow-lg" style={{background: 'linear-gradient(180deg, rgba(255,204,153,.12), rgba(255,204,153,.05))'}}>
-                     <h4 className="text-xl font-bold mb-3"><i className="fa-solid fa-pencil mr-2"></i>DIY</h4>
-                     <p>I'm happy to explain when I think something would work better for me by using a different format, tool, or style. I'm happy to work with people and match their workflows, but I'm also able to tailor things to my needs while explaining why and documenting how along the way.</p>
-                 </div>
+                <p className="text-center text-light-text my-6">My mindset as a leader, learner, and team member all follow the principles of being involved and making myself heard while also giving others a voice and seeing things from a variety of lenses.</p>
+                <div className="bg-soft-gray-bg p-6 rounded-lg border border-emphasis shadow-lg" style={{ background: 'linear-gradient(180deg, rgba(255,204,153,.12), rgba(255,204,153,.05))' }}>
+                    <h4 className="text-xl font-bold mb-3"><i className="fa-solid fa-pencil mr-2"></i>DIY</h4>
+                    <p>I'm happy to explain when I think something would work better for me by using a different format, tool, or style. I'm happy to work with people and match their workflows, but I'm also able to tailor things to my needs while explaining why and documenting how along the way.</p>
+                </div>
             </div>
             {/* FIX: Removed non-standard 'jsx' prop from the style tag. */}
-             <style>{`
+            <style>{`
                 .pill {
                     display: inline-block;
                     background: #e88d52;
