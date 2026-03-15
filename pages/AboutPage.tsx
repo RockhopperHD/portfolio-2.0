@@ -8,7 +8,7 @@ const AboutPage: React.FC = () => {
     }, []);
 
     return (
-        <SubPageLayout title="About Me" subtitle="A little bit about my values and interests.">
+        <SubPageLayout title="About Me" subtitle="Get to know the person, not just the résumé.">
             <div className="bg-gradient-to-br from-emphasis to-emphasis-darker text-dark-text p-6 rounded-lg text-center text-lg font-semibold mx-auto mb-8 shadow-lg border border-emphasis-darker">
                 <p className="text-dark-text [text-shadow:0_1px_1px_rgba(255,255,255,0.2)]">
                     From New York, I’m participating in the communities I find myself in by utilizing my dedicated interests and advanced skills in technology, language, and the world.

@@ -35,17 +35,21 @@ const ResumeWebPage: React.FC = () => {
         </div>
     );
 
-    const SkillItem: React.FC<{ title: string, children: React.ReactNode }> = ({ title, children }) => (
-        <div className="flex items-start mt-2">
-            <span className="text-emphasis-darker mr-3 mt-1 transform rotate-45 text-sm">◆</span>
-            <div>
-                <span className="font-bold">{title}:</span> {children}
-            </div>
-        </div>
-    );
-
     return (
-        <SubPageLayout title="Résumé" subtitle="A detailed overview of my professional and academic experience.">
+        <SubPageLayout title="Résumé" subtitle="The full picture — or skip straight to the PDF.">
+            {/* Actions bar */}
+            <div className="flex justify-end mb-4">
+                <a
+                    href="/OwenWhelan_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-sm border-2 transition-all duration-200 hover:scale-105 active:scale-95"
+                    style={{ background: 'linear-gradient(135deg, #FFCC99, #f5a673)', borderColor: '#e88d52', color: '#121212' }}
+                >
+                    <i className="fa-solid fa-file-pdf"></i> Download PDF
+                </a>
+            </div>
+
             <div className="bg-soft-gray-bg p-6 sm:p-8 rounded-lg shadow-lg border border-medium-gray-bg font-sans">
                 {/* Header */}
                 <div className="text-center border-b-4 pb-4 mb-4" style={{ borderColor: '#FFCC99' }}>
@@ -57,12 +61,19 @@ const ResumeWebPage: React.FC = () => {
                 </div>
 
                 {/* Summary */}
-                <p className="text-center my-4">
+                <p className="text-center my-4 text-light-text/90 italic">
                     Honors student merging language, education, and AI to build global learning tools. Passionate about shaping the future of EdTech through curiosity and collaboration.
                 </p>
 
                 {/* Work Experience */}
                 <SectionHeader title="Work Experience" />
+                <Entry title="Marist University Digital Education: AI Content Creator & Consultant" pills={['Summer 2025, Full Time', 'Student Employee, 2026–Present']} location="POUGHKEEPSIE, NEW YORK">
+                    <ul className="list-disc pl-5 space-y-1">
+                        <li>Created 8+ resources guiding faculty and students on responsible, efficient AI usage</li>
+                        <li>Coordinated, interviewed, and edited video features of 8 faculty members regarding their generative AI use</li>
+                        <li>Rehired as a student employee following studying abroad, focusing on software cataloging and the core university experience</li>
+                    </ul>
+                </Entry>
                 <Entry title="Smile and Learn Intern: Artificial Intelligence & BeBilingual Teams" pills={['Part Time Internship', 'Fall 2025']} location="MADRID, SPAIN">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>Deployed AI tools to streamline content, including a game engine and 4+ tools aligning lessons to Spanish, American, and CEFR standards</li>
@@ -70,40 +81,29 @@ const ResumeWebPage: React.FC = () => {
                         <li>Designed comprehensive Pre-A1 to B2 Spanish curriculum integrating targeted learning strategies</li>
                     </ul>
                 </Entry>
-                <Entry title="Marist University Digital Education/IT Team Member" pills={['Full Time Work', 'Summer 2025']} location="POUGHKEEPSIE, NEW YORK">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Created 8+ resources guiding faculty and students on responsible, efficient AI usage</li>
-                        <li>Coordinated, interviewed, and edited video features of 8 faculty members regarding their generative AI use</li>
-                    </ul>
-                </Entry>
-                <Entry title="Rockland BOCES Substitute Teaching Assistant" pills={['Contract Work', '2025']} location="CLARKSTOWN, NEW YORK">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Assisted teachers instructing neurodivergent students during full-day sessions</li>
-                    </ul>
-                </Entry>
 
                 {/* Educational Experience */}
-                <SectionHeader title="Educational Experience" />
-                <Entry title="Marist University, Honors Student" pills={['Full Time Student', 'Fall 2023 - Spring 2027']} location="POUGHKEEPSIE, NEW YORK and MADRID, SPAIN">
+                <SectionHeader title="Education" />
+                <Entry title="Marist University, Honors Student" pills={['Full Time Student', 'Fall 2023 – Spring 2027']} location="POUGHKEEPSIE, NEW YORK and MADRID, SPAIN">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Major in adolescent education & Spanish, minor in Applied Al (B.A./M.A. expected 2027/2028), 3.9 GPA</li>
+                        <li>Major in adolescent education & Spanish, minor in Applied AI (B.A./M.A. expected 2027/2028), 3.9 GPA</li>
                         <li>Semester Abroad: Universidad Carlos III de Madrid (Fall 2025); completed 16-hr/wk internship and coursework entirely in Spanish</li>
                     </ul>
                 </Entry>
 
-                {/* Research and Presentational Experience */}
-                <SectionHeader title="Research and Presentation Experience" />
-                <Entry title="Publication for International Technology, Education and Development (INTED)" pills={['Project from Winter 2024 to Spring 2025', 'Presented in March 2025']} location="VALENCIA, SPAIN">
+                {/* Research and Presentation Experience */}
+                <SectionHeader title="Research & Presentation Experience" />
+                <Entry title="Publication for International Technology, Education and Development (INTED)" pills={['Winter 2024 – Spring 2025', 'Presented March 2025']} location="VALENCIA, SPAIN">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Presented exploratory paper on AI and note-taking to an international audience of 30+ academics</li>
+                        <li>Presented exploratory paper on AI and note-taking to an international audience of 30+ academics; published</li>
                     </ul>
                 </Entry>
-                <Entry title="Marist+AI Academic Group" pills={['2024 - 2025']} location="POUGHKEEPSIE, NEW YORK">
+                <Entry title="Marist+AI Academic Group" pills={['2024 – 2025']} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>Collaborated with faculty to develop a comprehensive internal and external AI framework</li>
                     </ul>
                 </Entry>
-                <Entry title="Other Academic Conferences" pills={["Various"]} location="POUGHKEEPSIE, NEW YORK">
+                <Entry title="Other Academic Conferences" pills={['Various']} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>ALOUD (2025): Developed a language-learning video game for K–12 teachers with 2 modes and 4 languages</li>
                         <li>CURSCA (2025) & Hudson Valley AI Summit (2025): Facilitated discussion and presented poster research</li>
@@ -112,11 +112,11 @@ const ResumeWebPage: React.FC = () => {
 
                 {/* Extracurricular Experience */}
                 <SectionHeader title="Extracurricular Experience" />
-                <Entry title="Student Newspaper, the Marist Circle" pills={['2023 - Present']} location="POUGHKEEPSIE, NEW YORK">
+                <Entry title="Student Newspaper, the Marist Circle" pills={['2023 – Present']} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>Authored 15+ articles and mentored junior writers on editing and composition</li>
-                        <li><strong>Co-Features Editor</strong> (2024 - Present): Edited up to 3 articles per issue, continued writing, distribution</li>
-                        <li><strong>Staff Writer</strong> (2023 - 2024): Pitched stories, coordinated assignments, and assisted with campus distribution</li>
+                        <li><strong>Co-Features Editor</strong> (2024 – Present): Edited up to 3 articles per issue, continued writing, distribution</li>
+                        <li><strong>Staff Writer</strong> (2023 – 2024): Pitched stories, coordinated assignments, and assisted with campus distribution</li>
                     </ul>
                 </Entry>
 
@@ -124,7 +124,7 @@ const ResumeWebPage: React.FC = () => {
                 <SectionHeader title="Awards" />
                 <div className="space-y-1">
                     <div className="flex justify-between items-baseline flex-wrap">
-                        <p>Dean’s List, Marist University (2024, 2025; 4x)</p>
+                        <p>Dean's List, Marist University (2024, 2025; 4x)</p>
                         <span className="text-xs font-mono text-light-text/90 font-bold text-right pl-4 flex-shrink-0">POUGHKEEPSIE, NEW YORK</span>
                     </div>
                     <div className="flex justify-between items-baseline flex-wrap">
@@ -139,9 +139,20 @@ const ResumeWebPage: React.FC = () => {
 
                 {/* Other Skills */}
                 <SectionHeader title="Other Skills" />
-                <p className="mt-2 text-light-text/90">
-                    Generative artificial intelligence, graphic design, productivity software, development and deployment of software tools. Communicative, quick, and innovative. Open-minded to learning new tools and ideas. Enjoys and accepts challenges involving learning and developing new solutions. Readily accepts & applies feedback.
-                </p>
+                <div className="mt-2 space-y-1 text-light-text/90">
+                    <div className="flex items-start gap-2">
+                        <span className="font-bold" style={{ color: '#FFCC99' }}>→</span>
+                        <p>Generative artificial intelligence, graphic design, productivity software, development and deployment of software tools.</p>
+                    </div>
+                    <div className="flex items-start gap-2">
+                        <span className="font-bold" style={{ color: '#FFCC99' }}>→</span>
+                        <p>Open-minded to learning new tools and ideas. Enjoys and accepts challenges involving learning and developing new solutions.</p>
+                    </div>
+                    <div className="flex items-start gap-2">
+                        <span className="font-bold" style={{ color: '#FFCC99' }}>→</span>
+                        <p>Readily accepts & applies feedback. Communicative, quick, and innovative.</p>
+                    </div>
+                </div>
             </div>
         </SubPageLayout>
     );

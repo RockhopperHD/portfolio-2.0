@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
         <div>
             <div className="bg-dark-gray-bg py-10 px-4 sm:px-6" style={{ backgroundImage: "repeating-linear-gradient( 45deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02) 10px, transparent 10px, transparent 20px )" }}>
                 <div className="bg-soft-gray-bg text-light-text p-6 sm:p-8 rounded-lg text-center font-normal text-base sm:text-lg shadow-lg max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto">
-                    I'm a motivated, dedicated individual who uses modern technology to research what's new in education and understand the world of language and communication a bit better, for myself and for others.
+                    I care a lot about how people learn — and I've spent most of my time building at the intersection of AI, language, and education to figure it out. Come see what I've been up to.
                 </div>
             </div>
 
