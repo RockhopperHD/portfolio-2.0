@@ -15,21 +15,21 @@ const ResumeWebPage: React.FC = () => {
     );
 
     const Entry: React.FC<{ title: string; pills?: string[]; location: string; children: React.ReactNode }> = ({ title, pills, location, children }) => (
-        <div className="mb-4">
+        <div className="mb-8">
             <div className="flex justify-between items-baseline flex-wrap gap-y-1">
-                <h3 className="text-md font-bold text-light-text">
+                <h3 className="text-xl font-bold text-light-text mb-1">
                     {title}
                 </h3>
-                <span className="text-xs font-mono text-light-text/90 font-bold text-right pl-4 flex-shrink-0">{location}</span>
+                <span className="text-sm font-mono text-light-text/90 font-bold text-right pl-4 flex-shrink-0">{location}</span>
             </div>
             {pills && pills.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-1">
+                <div className="flex flex-wrap gap-2 mb-2">
                     {pills.map((pill, index) => (
-                        <span key={index} className="bg-medium-gray-bg text-light-text px-2 py-0.5 rounded-full text-xs font-semibold">{pill}</span>
+                        <span key={index} className="bg-medium-gray-bg text-light-text px-2.5 py-0.5 rounded-full text-xs font-semibold">{pill}</span>
                     ))}
                 </div>
             )}
-            <div className="pl-4 mt-2 text-light-text/90">
+            <div className="pl-4 mt-1 text-light-text/90 marker:text-light-text/50">
                 {children}
             </div>
         </div>
@@ -67,56 +67,61 @@ const ResumeWebPage: React.FC = () => {
 
                 {/* Work Experience */}
                 <SectionHeader title="Work Experience" />
-                <Entry title="Marist University Digital Education: AI Content Creator & Consultant" pills={['Summer 2025, Full Time', 'Student Employee, 2026–Present']} location="POUGHKEEPSIE, NEW YORK">
+                <Entry title="Smile and Learn Intern: Artificial Intelligence (AI) & BeBilingual Teams" pills={['Part Time Internship', 'Fall 2025']} location="MADRID, SPAIN">
+                    <ul className="list-disc pl-5 space-y-1">
+                        <li>Deployed AI tools to streamline content, including a game engine and 4+ tools aligning lessons to Spanish, American, and Common European Framework of Reference (CEFR) standards</li>
+                        <li>Engineered AINARA chatbot personality, prioritizing coding capabilities and an educational tone</li>
+                        <li>Designed comprehensive Pre-A1 to B2 Spanish curriculum integrating targeted learning strategies</li>
+                    </ul>
+                </Entry>
+                <Entry title="Marist University Digital Education: AI Information Creator & Consultant" pills={['Full Time Employee, Summer 2025', 'Part Time Student Employee, 2026 - Present']} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>Created 8+ resources guiding faculty and students on responsible, efficient AI usage</li>
                         <li>Coordinated, interviewed, and edited video features of 8 faculty members regarding their generative AI use</li>
-                        <li>Rehired as a student employee following studying abroad, focusing on software cataloging and the core university experience</li>
+                        <li>Post-abroad: Direct work with university software cataloging and the core university experience</li>
                     </ul>
                 </Entry>
-                <Entry title="Smile and Learn Intern: Artificial Intelligence & BeBilingual Teams" pills={['Part Time Internship', 'Fall 2025']} location="MADRID, SPAIN">
+                <Entry title="Rockland BOCES Substitute Teaching Assistant" pills={['Contract Work', '2025']} location="CLARKSTOWN, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Deployed AI tools to streamline content, including a game engine and 4+ tools aligning lessons to Spanish, American, and CEFR standards</li>
-                        <li>Engineered AINARA chatbot personality, prioritizing coding capabilities and an educational tone</li>
-                        <li>Designed comprehensive Pre-A1 to B2 Spanish curriculum integrating targeted learning strategies</li>
+                        <li>Directly coordinated and facilitated lessons with teachers for neurodivergent students during full-day sessions</li>
                     </ul>
                 </Entry>
 
                 {/* Educational Experience */}
                 <SectionHeader title="Education" />
-                <Entry title="Marist University, Honors Student" pills={['Full Time Student', 'Fall 2023 – Spring 2027']} location="POUGHKEEPSIE, NEW YORK and MADRID, SPAIN">
+                <Entry title="Marist University, Honors Student" pills={['Full Time Student', 'Fall 2023 - Spring 2027']} location="POUGHKEEPSIE, NEW YORK and MADRID, SPAIN">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Major in adolescent education & Spanish, minor in Applied AI (B.A./M.A. expected 2027/2028), 3.9 GPA</li>
-                        <li>Semester Abroad: Universidad Carlos III de Madrid (Fall 2025); completed 16-hr/wk internship and coursework entirely in Spanish</li>
+                        <li>Major in adolescent education & Spanish, minor in Applied AI (B.A. in May 2027), 3.9 GPA</li>
+                        <li>Semester Abroad: Universidad Carlos III de Madrid (Fall 2025); classwork and internship in Spanish</li>
                     </ul>
                 </Entry>
 
                 {/* Research and Presentation Experience */}
                 <SectionHeader title="Research & Presentation Experience" />
-                <Entry title="Publication for International Technology, Education and Development (INTED)" pills={['Winter 2024 – Spring 2025', 'Presented March 2025']} location="VALENCIA, SPAIN">
+                <Entry title="Publication for International Technology, Education and Development (INTED)" pills={['2024 - 2025', 'Presented in March 2025']} location="VALENCIA, SPAIN">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>Presented exploratory paper on AI and note-taking to an international audience of 30+ academics; published</li>
                     </ul>
                 </Entry>
-                <Entry title="Marist+AI Academic Group" pills={['2024 – 2025']} location="POUGHKEEPSIE, NEW YORK">
+                <Entry title="Marist+AI Artificial Intelligence Academic Group" pills={['2024 - 2026']} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>Collaborated with faculty to develop a comprehensive internal and external AI framework</li>
                     </ul>
                 </Entry>
-                <Entry title="Other Academic Conferences" pills={['Various']} location="POUGHKEEPSIE, NEW YORK">
+                <Entry title="Other Academic Conferences" pills={['2025']} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>ALOUD (2025): Developed a language-learning video game for K–12 teachers with 2 modes and 4 languages</li>
-                        <li>CURSCA (2025) & Hudson Valley AI Summit (2025): Facilitated discussion and presented poster research</li>
+                        <li><strong>ALOUD (2025):</strong> Developed a language-learning video game for K–12 teachers with 2 modes and 4 languages</li>
+                        <li><strong>CURSCA (2025) & Hudson Valley AI Summit (2025):</strong> Facilitated discussion and presented poster research</li>
                     </ul>
                 </Entry>
 
                 {/* Extracurricular Experience */}
                 <SectionHeader title="Extracurricular Experience" />
-                <Entry title="Student Newspaper, the Marist Circle" pills={['2023 – Present']} location="POUGHKEEPSIE, NEW YORK">
+                <Entry title="Student Newspaper, the Marist Circle" pills={['Part Time Club', '2023 - Present']} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>Authored 15+ articles and mentored junior writers on editing and composition</li>
-                        <li><strong>Co-Features Editor</strong> (2024 – Present): Edited up to 3 articles per issue, continued writing, distribution</li>
-                        <li><strong>Staff Writer</strong> (2023 – 2024): Pitched stories, coordinated assignments, and assisted with campus distribution</li>
+                        <li><strong>Co-Features Editor</strong> (2024 - Present): Edited up to 3 articles per issue, continued writing, distribution</li>
+                        <li><strong>Staff Writer</strong> (2023 - 2024): Pitched stories, coordinated assignments, and assisted with campus distribution</li>
                     </ul>
                 </Entry>
 
@@ -124,7 +129,7 @@ const ResumeWebPage: React.FC = () => {
                 <SectionHeader title="Awards" />
                 <div className="space-y-1">
                     <div className="flex justify-between items-baseline flex-wrap">
-                        <p>Dean's List, Marist University (2024, 2025; 4x)</p>
+                        <p>Dean's List, Marist University (2024, 2025 | 5x)</p>
                         <span className="text-xs font-mono text-light-text/90 font-bold text-right pl-4 flex-shrink-0">POUGHKEEPSIE, NEW YORK</span>
                     </div>
                     <div className="flex justify-between items-baseline flex-wrap">
