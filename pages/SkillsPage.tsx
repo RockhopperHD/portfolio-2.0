@@ -1,10 +1,22 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import SubPageLayout from './SubPageLayout';
 import { SOFTWARE_SKILLS } from '../constants';
 
 const SkillsPage: React.FC = () => {
     const [focusedSkill, setFocusedSkill] = useState<string | null>(null);
+    const resumeAnchors: Record<string, string> = {
+        'INTED': 'inted',
+        'CURSCA': 'academic-conferences',
+        'Digital Ed Intern': 'digital-education',
+        'University Work': 'digital-education',
+        'Marist Circle': 'marist-circle',
+        'Abroad': 'marist-university',
+        'Tutoring': 'freelance-tutoring',
+        'ALOUD': 'academic-conferences',
+        'BOCES TA': 'boces-ta',
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -20,7 +32,7 @@ const SkillsPage: React.FC = () => {
     );
 
     const Pill = ({ text }: { text: string }) => (
-        <span className="bg-medium-gray-bg text-light-text px-3 py-1 rounded-full text-sm font-medium">{text}</span>
+        <Link to={`/resume#${resumeAnchors[text] ?? 'marist-university'}`} className="pill">{text}</Link>
     );
 
     return (
@@ -65,19 +77,19 @@ const SkillsPage: React.FC = () => {
                     <div className="bg-soft-gray-bg p-6 rounded-lg border border-medium-gray-bg shadow-lg">
                         <h4 className="text-xl font-bold mb-4">English</h4>
                         <ul className="list-none p-0 space-y-3">
-                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Academic Writing</span><span className="pill">INTED</span><span className="pill">CURSCA</span></li>
-                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Interviewing &amp; Coordination</span><span className="pill">Digital Ed Intern</span></li>
-                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Fast &amp; clear communication</span><span className="pill">University Work</span></li>
-                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Journalism writing</span><span className="pill">Marist Circle</span></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Academic Writing</span><Pill text="INTED" /><Pill text="CURSCA" /></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Interviewing &amp; Coordination</span><Pill text="Digital Ed Intern" /></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Fast &amp; clear communication</span><Pill text="University Work" /></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Journalism writing</span><Pill text="Marist Circle" /></li>
                         </ul>
                         <p className="text-sm text-light-text/80 mt-4">Clear prose, editing for structure, and audience-aware tone across academic, journalistic, and instructional contexts.</p>
                     </div>
                     <div className="bg-soft-gray-bg p-6 rounded-lg border border-medium-gray-bg shadow-lg">
                         <h4 className="text-xl font-bold mb-4">Spanish</h4>
                         <ul className="list-none p-0 space-y-3">
-                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Time abroad: interpersonal communication</span><span className="pill">Abroad</span></li>
-                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Experience tutoring and teaching</span><span className="pill">Tutoring</span></li>
-                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Self-directed tools for learning</span><span className="pill">ALOUD</span></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Time abroad: interpersonal communication</span><Pill text="Abroad" /></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Experience tutoring and teaching</span><Pill text="Tutoring" /></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Self-directed tools for learning</span><Pill text="ALOUD" /></li>
                         </ul>
                         <p className="text-sm text-light-text/80 mt-4">Practical Spanish experience through study abroad and tutoring; emphasis on clear, respectful interaction.</p>
                     </div>
@@ -118,6 +130,11 @@ const SkillsPage: React.FC = () => {
                     font-size: .8rem;
                     font-weight: 600;
                     white-space: nowrap;
+                    transition: background .15s ease, transform .15s ease;
+                }
+                .pill:hover {
+                    background: #FFCC99;
+                    transform: translateY(-1px);
                 }
              `}</style>
         </SubPageLayout>

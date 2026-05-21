@@ -9,6 +9,7 @@ interface ProjectData {
     buttonText: string;
     buttonLink: string;
     images: string[];
+    imageFit?: 'cover' | 'contain';
 }
 
 const projects: ProjectData[] = [
@@ -28,6 +29,24 @@ const projects: ProjectData[] = [
             "/photos/flashcardsish3.png",
             "/photos/flashcardsish4.png",
         ]
+    },
+    {
+        title: "Iquan",
+        year: "2026",
+        subtitle: "A simple icon maker with portable export codes",
+        description: [
+            "Iquan is a simple icon maker packed with features simple and complex. It's great for making small emojis for word processors or chat programs. I made it to solve an issue I had with image editing: sometimes you need just one quick change but don't want to open a full image editor. That's the problem Iquan solves.",
+            "Iquan supports exporting as PNGs, but also supports exporting icons as codes so that anyone can integrate them into their own vibe-coding apps. It was created for the Codex Creator Challenge in 2026."
+        ],
+        buttonText: "View Iquan",
+        buttonLink: "https://iquan.owenwhelan.com",
+        images: [
+            "/photos/iquan1.png",
+            "/photos/iquan2.png",
+            "/photos/iquan3.png",
+            "/photos/iquan4.png",
+        ],
+        imageFit: 'contain'
     },
     {
         title: "Connectionsish",
@@ -95,7 +114,7 @@ const ProjectsPage: React.FC = () => {
                                     <img
                                         src={img}
                                         alt={`Project ${index + 1} photo ${i + 1}`}
-                                        className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700 ease-out"
+                                        className={`w-full h-full ${project.imageFit === 'contain' ? 'object-contain bg-[#eef6ff]' : 'object-cover'} transform hover:scale-110 transition-transform duration-700 ease-out`}
                                     />
                                 </div>
                             ))}

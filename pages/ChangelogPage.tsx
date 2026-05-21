@@ -28,6 +28,11 @@ const ChangelogPage: React.FC = () => {
   return (
     <SubPageLayout title="Website Changelog" subtitle="Recent updates and improvements to the portfolio site.">
       <div>
+        <ChangelogEntry title="May 2026 Portfolio Update" date="May 20, 2026">
+          <li>Updated rÃ©sumÃ© information for senior year, Marist Circle Editor-in-Chief, and Digital Education work.</li>
+          <li>Added Iquan to the Projects page with screenshots and a direct project link.</li>
+          <li>Made Skills page pills link directly to matching rÃ©sumÃ© sections.</li>
+        </ChangelogEntry>
         <ChangelogEntry title="Portfoliotizing" date="January 18, 2026">
           <li>Changed out a page</li>
           <li>Added a place to see my other ongoing projects</li>

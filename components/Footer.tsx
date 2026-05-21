@@ -33,7 +33,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <button onClick={() => onNavigate('/changelog')} className="button-style mt-6">
                 View Website Changelog
             </button>
-            <p className="text-sm text-medium-gray-bg mt-4">Last updated in January 2026.</p>
+            <p className="text-sm text-medium-gray-bg mt-4">Last updated in May 2026.</p>
             <p className="text-xs text-medium-gray-bg italic mt-6">This site was coded with AI and augmented with my knowledge of HTML and graphic design. I did the "vibe coding" process and then deployed the website myself.</p>
             {/* FIX: Removed non-standard 'jsx' prop from the style tag. */}
             <style>{`

@@ -1,11 +1,21 @@
 
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import SubPageLayout from './SubPageLayout';
 
 const ResumeWebPage: React.FC = () => {
+    const location = useLocation();
+
     useEffect(() => {
+        if (location.hash) {
+            const target = document.getElementById(location.hash.slice(1));
+            if (target) {
+                setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
+                return;
+            }
+        }
         window.scrollTo(0, 0);
-    }, []);
+    }, [location.hash]);
 
     const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
         <div className="mt-6 mb-3">
@@ -14,8 +24,8 @@ const ResumeWebPage: React.FC = () => {
         </div>
     );
 
-    const Entry: React.FC<{ title: string; pills?: string[]; location: string; children: React.ReactNode }> = ({ title, pills, location, children }) => (
-        <div className="mb-4">
+    const Entry: React.FC<{ id?: string; title: string; pills?: string[]; location: string; children: React.ReactNode }> = ({ id, title, pills, location, children }) => (
+        <div id={id} className="mb-4 scroll-mt-24">
             <div className="flex justify-between items-baseline flex-wrap gap-y-1">
                 <h3 className="text-md font-bold text-light-text">
                     {title}
@@ -63,47 +73,53 @@ const ResumeWebPage: React.FC = () => {
 
                 {/* Work Experience */}
                 <SectionHeader title="Work Experience" />
-                <Entry title="Smile and Learn Intern: Artificial Intelligence & BeBilingual Teams" pills={['Part Time Internship', 'Fall 2025']} location="MADRID, SPAIN">
+                <Entry id="smile-learn" title="Smile and Learn Intern: Artificial Intelligence & BeBilingual Teams" pills={['Part Time Internship', 'Fall 2025']} location="MADRID, SPAIN">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>Deployed AI tools to streamline content, including a game engine and 4+ tools aligning lessons to Spanish, American, and CEFR standards</li>
                         <li>Engineered AINARA chatbot personality, prioritizing coding capabilities and an educational tone</li>
                         <li>Designed comprehensive Pre-A1 to B2 Spanish curriculum integrating targeted learning strategies</li>
                     </ul>
                 </Entry>
-                <Entry title="Marist University Digital Education/IT Team Member" pills={['Full Time Work', 'Summer 2025']} location="POUGHKEEPSIE, NEW YORK">
+                <Entry id="digital-education" title="Marist University Digital Education: AI Information Creator & Consultant" pills={['Full Time: Summer 2025', 'Part Time: Spring 2026', 'Full Time: Summer 2026']} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>Created 8+ resources guiding faculty and students on responsible, efficient AI usage</li>
                         <li>Coordinated, interviewed, and edited video features of 8 faculty members regarding their generative AI use</li>
+                        <li>Continued producing AI information resources and consultation support through Spring 2026, with full-time work continuing in Summer 2026</li>
                     </ul>
                 </Entry>
-                <Entry title="Rockland BOCES Substitute Teaching Assistant" pills={['Contract Work', '2025']} location="CLARKSTOWN, NEW YORK">
+                <Entry id="boces-ta" title="Rockland BOCES Substitute Teaching Assistant" pills={['Contract Work', '2025']} location="CLARKSTOWN, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>Assisted teachers instructing neurodivergent students during full-day sessions</li>
+                    </ul>
+                </Entry>
+                <Entry id="freelance-tutoring" title="Freelance Tutor" pills={['Tutoring', 'Spanish', 'Science']} location="REMOTE">
+                    <ul className="list-disc pl-5 space-y-1">
+                        <li>Provided virtual private tutoring to high school students in Spanish and science subjects</li>
                     </ul>
                 </Entry>
 
                 {/* Educational Experience */}
                 <SectionHeader title="Educational Experience" />
-                <Entry title="Marist University, Honors Student" pills={['Full Time Student', 'Fall 2023 - Spring 2027']} location="POUGHKEEPSIE, NEW YORK and MADRID, SPAIN">
+                <Entry id="marist-university" title="Marist University, Senior Honors Student" pills={['Full Time Student', 'Fall 2023 - Spring 2027']} location="POUGHKEEPSIE, NEW YORK and MADRID, SPAIN">
                     <ul className="list-disc pl-5 space-y-1">
-                        <li>Major in adolescent education & Spanish, minor in Applied Al (B.A./M.A. expected 2027/2028), 3.9 GPA</li>
+                        <li>Major in adolescent education & Spanish, minor in Applied AI (B.A./M.A. expected 2027/2028), 3.9 GPA</li>
                         <li>Semester Abroad: Universidad Carlos III de Madrid (Fall 2025); completed 16-hr/wk internship and coursework entirely in Spanish</li>
                     </ul>
                 </Entry>
 
                 {/* Research and Presentational Experience */}
                 <SectionHeader title="Research and Presentation Experience" />
-                <Entry title="Publication for International Technology, Education and Development (INTED)" pills={['Project from Winter 2024 to Spring 2025', 'Presented in March 2025']} location="VALENCIA, SPAIN">
+                <Entry id="inted" title="Publication for International Technology, Education and Development (INTED)" pills={['Project from Winter 2024 to Spring 2025', 'Presented in March 2025']} location="VALENCIA, SPAIN">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>Presented exploratory paper on AI and note-taking to an international audience of 30+ academics</li>
                     </ul>
                 </Entry>
-                <Entry title="Marist+AI Academic Group" pills={['2024 - 2025']} location="POUGHKEEPSIE, NEW YORK">
+                <Entry id="marist-ai" title="Marist+AI Academic Group" pills={['2024 - 2025']} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>Collaborated with faculty to develop a comprehensive internal and external AI framework</li>
                     </ul>
                 </Entry>
-                <Entry title="Other Academic Conferences" pills={["Various"]} location="POUGHKEEPSIE, NEW YORK">
+                <Entry id="academic-conferences" title="Other Academic Conferences" pills={["Various"]} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>ALOUD (2025): Developed a language-learning video game for K–12 teachers with 2 modes and 4 languages</li>
                         <li>CURSCA (2025) & Hudson Valley AI Summit (2025): Facilitated discussion and presented poster research</li>
@@ -112,10 +128,11 @@ const ResumeWebPage: React.FC = () => {
 
                 {/* Extracurricular Experience */}
                 <SectionHeader title="Extracurricular Experience" />
-                <Entry title="Student Newspaper, the Marist Circle" pills={['2023 - Present']} location="POUGHKEEPSIE, NEW YORK">
+                <Entry id="marist-circle" title="Student Newspaper, the Marist Circle" pills={['2023 - Present', 'Editor-in-Chief: May 2026 - Present']} location="POUGHKEEPSIE, NEW YORK">
                     <ul className="list-disc pl-5 space-y-1">
                         <li>Authored 15+ articles and mentored junior writers on editing and composition</li>
-                        <li><strong>Co-Features Editor</strong> (2024 - Present): Edited up to 3 articles per issue, continued writing, distribution</li>
+                        <li><strong>Editor-in-Chief</strong> (May 2026 - Present): Leads editorial direction, issue planning, staff coordination, and publication standards</li>
+                        <li><strong>Co-Features Editor</strong> (2024 - May 2026): Edited up to 3 articles per issue, continued writing, distribution</li>
                         <li><strong>Staff Writer</strong> (2023 - 2024): Pitched stories, coordinated assignments, and assisted with campus distribution</li>
                     </ul>
                 </Entry>
