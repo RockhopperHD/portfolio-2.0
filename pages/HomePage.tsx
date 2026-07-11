@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
         <div>
             <div className="bg-dark-gray-bg py-10 px-4 sm:px-6" style={{ backgroundImage: "repeating-linear-gradient( 45deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02) 10px, transparent 10px, transparent 20px )" }}>
                 <div className="bg-soft-gray-bg text-light-text p-6 sm:p-8 rounded-lg text-center font-normal text-base sm:text-lg shadow-lg max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto">
-                    I'm a senior at Marist University and a motivated, dedicated individual who uses modern technology to research what's new in education and understand the world of language and communication a bit better, for myself and for others.
+                    I am a B.A. candidate in Adolescent Education &amp; Spanish at Marist University, with a minor in Applied AI and expected graduation in Spring 2027. My work brings together AI literacy, instructional resources, curriculum development, language learning, research, and clear communication for students, educators, and university communities.
                 </div>
             </div>
 
@@ -68,6 +68,9 @@ const HomePage: React.FC = () => {
                 <section id="highlights-section" className="content-section bg-light-bg shadow-custom-medium pt-8">
                     <SectionLabel title="Highlights" />
                     <div className="section-content p-5 md:p-10">
+                        <p className="max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 mb-2 text-light-text/90 text-base sm:text-lg">
+                            Evidence includes faculty-facing AI resources, CEFR-aligned Spanish curriculum, published education research, classroom support, and learning tools built for educators and students.
+                        </p>
                         <HighlightsCarousel />
                     </div>
                 </section>

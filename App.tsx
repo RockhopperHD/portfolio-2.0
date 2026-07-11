@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { HashRouter, Routes, Route, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { HashRouter, Navigate, Routes, Route, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -60,7 +60,8 @@ const App: React.FC = () => {
         <Route element={<SubPageLayout />}>
           <Route path="/about" element={<AboutPage />} />
           <Route path="/skills" element={<SkillsPage />} />
-          <Route path="/experience" element={<ExperiencePage />} />
+          <Route path="/portfolio" element={<ExperiencePage />} />
+          <Route path="/experience" element={<Navigate to="/portfolio" replace />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/resume" element={<ResumeWebPage />} />
           <Route path="/changelog" element={<ChangelogPage />} />

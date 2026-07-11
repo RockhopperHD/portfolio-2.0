@@ -7,7 +7,7 @@ export interface PortfolioItem {
   title: string;
   category: string[];
   content: {
-    heading: string;
+    heading: string | React.ReactElement;
     description: string | React.ReactElement;
     pills: string[];
   };
@@ -24,10 +24,14 @@ export interface WorkItem {
   type: 'project' | 'extra';
   year: string;
   displayYear?: string;
+  season: string;
+  timelineOrder: number;
   category: string;
   icon: string;
   title: string;
   desc: string;
+  timelineId?: string;
+  progression?: string[];
   clipboardId: string;
 }
 

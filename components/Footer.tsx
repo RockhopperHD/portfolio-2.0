@@ -9,8 +9,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     return (
         <footer id="page-footer" className="bg-[#1a1a1a] text-light-text py-10 px-5 md:px-10 text-center text-shadow-lg border-t border-black">
             <div className="max-w-3xl mx-auto text-left mb-8">
-                <p>If I strike you as someone to talk to about what you do or how I could help, you can contact me at one of the links below.</p>
-                <p>I'm open to projects about AI, technology, education, and all the like -- or just to chat. :)</p>
+                <p>Feel free to reach out about opportunities in EdTech, learning design, AI literacy, curriculum, research, and communication. (or just to chat!)</p>
+                <p>I'm available on LinkedIn, too, for direct messaging and to see more credentials.</p>
             </div>
             <div className="flex justify-center gap-5 flex-wrap mb-4">
                 <a href="https://www.linkedin.com/in/owen-whelan-605966296/" target="_blank" rel="noopener noreferrer" className="footer-button">
@@ -33,8 +33,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <button onClick={() => onNavigate('/changelog')} className="button-style mt-6">
                 View Website Changelog
             </button>
-            <p className="text-sm text-medium-gray-bg mt-4">Last updated in May 2026.</p>
-            <p className="text-xs text-medium-gray-bg italic mt-6">This site was coded with AI and augmented with my knowledge of HTML and graphic design. I did the "vibe coding" process and then deployed the website myself.</p>
+            <p className="text-sm text-medium-gray-bg mt-4">Last updated in July 2026.</p>
+            <p className="text-xs text-medium-gray-bg italic mt-6">AI assisted the site's development. I own the content and design decisions and personally reviewed and deployed the finished work.</p>
             {/* FIX: Removed non-standard 'jsx' prop from the style tag. */}
             <style>{`
               .footer-button {

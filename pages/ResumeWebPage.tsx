@@ -1,164 +1,86 @@
-
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import SubPageLayout from './SubPageLayout';
+
+interface ResumeEntryProps {
+    id?: string;
+    title: React.ReactNode;
+    location: string;
+    dates: string;
+    children: React.ReactNode;
+}
 
 const ResumeWebPage: React.FC = () => {
     const location = useLocation();
 
     useEffect(() => {
-        if (location.hash) {
-            const target = document.getElementById(location.hash.slice(1));
-            if (target) {
-                setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
-                return;
-            }
+        const targetId = location.hash.slice(1);
+        if (targetId) {
+            setTimeout(() => document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
+        } else {
+            window.scrollTo(0, 0);
         }
-        window.scrollTo(0, 0);
     }, [location.hash]);
 
-    const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
-        <div className="mt-6 mb-3">
-            <h2 className="text-lg font-bold tracking-widest text-light-text uppercase">{title}</h2>
-            <div className="border-b-2 border-emphasis w-full"></div>
+    const SectionHeader = ({ title }: { title: string }) => (
+        <div className="mt-12 mb-5 flex items-center gap-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-light-text">{title}</h2>
+            <div className="h-px bg-emphasis/60 flex-1"></div>
         </div>
     );
 
-    const Entry: React.FC<{ id?: string; title: string; pills?: string[]; location: string; children: React.ReactNode }> = ({ id, title, pills, location, children }) => (
-        <div id={id} className="mb-4 scroll-mt-24">
-            <div className="flex justify-between items-baseline flex-wrap gap-y-1">
-                <h3 className="text-md font-bold text-light-text">
-                    {title}
-                </h3>
-                <span className="text-xs font-mono text-light-text/90 font-bold text-right pl-4 flex-shrink-0">{location}</span>
-            </div>
-            {pills && pills.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-1">
-                    {pills.map((pill, index) => (
-                        <span key={index} className="bg-medium-gray-bg text-light-text px-2 py-0.5 rounded-full text-xs font-semibold">{pill}</span>
-                    ))}
+    const Entry = ({ id, title, location, dates, children }: ResumeEntryProps) => (
+        <article id={id} className="scroll-mt-8 py-6 border-b border-medium-gray-bg/70 last:border-b-0">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-light-text leading-tight">{title}</h3>
+                    <p className="mt-2 text-base sm:text-lg font-semibold text-emphasis">{dates}</p>
                 </div>
-            )}
-            <div className="pl-4 mt-2 text-light-text/90">
-                {children}
+                <p className="text-sm font-bold tracking-wide text-light-text/75 sm:text-right sm:max-w-64">{location}</p>
             </div>
-        </div>
-    );
-
-    const SkillItem: React.FC<{ title: string, children: React.ReactNode }> = ({ title, children }) => (
-        <div className="flex items-start mt-2">
-            <span className="text-emphasis-darker mr-3 mt-1 transform rotate-45 text-sm">◆</span>
-            <div>
-                <span className="font-bold">{title}:</span> {children}
-            </div>
-        </div>
+            <ul className="mt-5 space-y-2 text-base sm:text-lg text-light-text/90 leading-relaxed">{children}</ul>
+        </article>
     );
 
     return (
-        <SubPageLayout title="Résumé" subtitle="A detailed overview of my professional and academic experience.">
-            <div className="bg-soft-gray-bg p-6 sm:p-8 rounded-lg shadow-lg border border-medium-gray-bg font-sans">
-                {/* Header */}
-                <div className="text-center border-b-4 pb-4 mb-4" style={{ borderColor: '#FFCC99' }}>
-                    <h1 className="text-4xl font-bold">Owen Whelan</h1>
-                    <div className="flex justify-center gap-x-6 gap-y-1 flex-wrap mt-2">
-                        <a href="mailto:owenw2023@gmail.com" className="text-light-text hover:text-emphasis transition-colors">owenw2023@gmail.com</a>
-                        <a href="mailto:owen.whelan1@marist.edu" className="text-light-text hover:text-emphasis transition-colors">owen.whelan1@marist.edu</a>
+        <SubPageLayout title="Resume" subtitle="Experience, research, and education at a glance.">
+            <div className="bg-soft-gray-bg p-5 sm:p-8 lg:p-10 rounded-2xl shadow-lg border border-medium-gray-bg font-sans">
+                <header className="pb-7 border-b-2 border-emphasis">
+                    <h1 className="text-4xl sm:text-5xl font-bold text-light-text">Owen Whelan</h1>
+                    <p className="mt-3 text-lg sm:text-xl text-light-text/85 max-w-3xl">B.A. candidate in Adolescent Education &amp; Spanish with an Applied AI minor, expected Spring 2027.</p>
+                    <div className="flex flex-wrap gap-x-6 gap-y-2 mt-5 text-base sm:text-lg">
+                        <a href="mailto:owenw2023@gmail.com" className="text-emphasis hover:text-emphasis-darker underline underline-offset-4">owenw2023@gmail.com</a>
+                        <a href="mailto:owen.whelan1@marist.edu" className="text-emphasis hover:text-emphasis-darker underline underline-offset-4">owen.whelan1@marist.edu</a>
+                        <a href="https://www.owenwhelan.com" className="text-emphasis hover:text-emphasis-darker underline underline-offset-4" target="_blank" rel="noreferrer">owenwhelan.com</a>
                     </div>
-                </div>
+                </header>
 
-                {/* Summary */}
-                <p className="text-center my-4">
-                    Honors student merging language, education, and AI to build global learning tools. Passionate about shaping the future of EdTech through curiosity and collaboration.
-                </p>
-
-                {/* Work Experience */}
                 <SectionHeader title="Work Experience" />
-                <Entry id="smile-learn" title="Smile and Learn Intern: Artificial Intelligence & BeBilingual Teams" pills={['Part Time Internship', 'Fall 2025']} location="MADRID, SPAIN">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Deployed AI tools to streamline content, including a game engine and 4+ tools aligning lessons to Spanish, American, and CEFR standards</li>
-                        <li>Engineered AINARA chatbot personality, prioritizing coding capabilities and an educational tone</li>
-                        <li>Designed comprehensive Pre-A1 to B2 Spanish curriculum integrating targeted learning strategies</li>
-                    </ul>
-                </Entry>
-                <Entry id="digital-education" title="Marist University Digital Education: AI Information Creator & Consultant" pills={['Full Time: Summer 2025', 'Part Time: Spring 2026', 'Full Time: Summer 2026']} location="POUGHKEEPSIE, NEW YORK">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Created 8+ resources guiding faculty and students on responsible, efficient AI usage</li>
-                        <li>Coordinated, interviewed, and edited video features of 8 faculty members regarding their generative AI use</li>
-                        <li>Continued producing AI information resources and consultation support through Spring 2026, with full-time work continuing in Summer 2026</li>
-                    </ul>
-                </Entry>
-                <Entry id="boces-ta" title="Rockland BOCES Substitute Teaching Assistant" pills={['Contract Work', '2025']} location="CLARKSTOWN, NEW YORK">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Assisted teachers instructing neurodivergent students during full-day sessions</li>
-                    </ul>
-                </Entry>
-                <Entry id="freelance-tutoring" title="Freelance Tutor" pills={['Tutoring', 'Spanish', 'Science']} location="REMOTE">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Provided virtual private tutoring to high school students in Spanish and science subjects</li>
-                    </ul>
-                </Entry>
+                <Entry id="precollege-ta" title="Marist University Pre-College - Teaching Assistant, AI Literacy" dates="Summer Session, 2026" location="POUGHKEEPSIE, NEW YORK"><li>Directed AI literacy lessons and supported classroom management.</li><li>Facilitated multiple interactive, hands-on workshops.</li></Entry>
+                <Entry id="digital-education" title="Marist University Digital Education - AI Information Creator & Consultant" dates="Full-Time Employee, Summer 2025 - Part-Time Student Employee, 2026-Present" location="POUGHKEEPSIE, NEW YORK"><li>Created 8+ resources guiding faculty and students on responsible, efficient AI use.</li><li>Produced eight faculty videos discussing their generative AI use from start to finish.</li><li>Worked directly on university software cataloging.</li></Entry>
+                <Entry id="smile-learn" title="Smile and Learn - AI & BeBilingual Intern" dates="Part-Time Internship, Fall 2025" location="MADRID, SPAIN"><li>Built a game engine and 4+ AI tools for CEFR-aligned learning.</li><li>Shaped AINARA's education-focused, coding-capable personality.</li><li>Designed Pre-A1 to B2 Spanish curriculum with targeted learning strategies.</li></Entry>
+                <Entry id="boces-ta" title="Rockland BOCES Substitute Teaching Assistant" dates="Contract Work, 2025" location="CLARKSTOWN, NEW YORK"><li>Coordinated and facilitated full-day lessons with teachers for neurodivergent students.</li></Entry>
 
-                {/* Educational Experience */}
-                <SectionHeader title="Educational Experience" />
-                <Entry id="marist-university" title="Marist University, Senior Honors Student" pills={['Full Time Student', 'Fall 2023 - Spring 2027']} location="POUGHKEEPSIE, NEW YORK and MADRID, SPAIN">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Major in adolescent education & Spanish, minor in Applied AI (B.A./M.A. expected 2027/2028), 3.9 GPA</li>
-                        <li>Semester Abroad: Universidad Carlos III de Madrid (Fall 2025); completed 16-hr/wk internship and coursework entirely in Spanish</li>
-                    </ul>
-                </Entry>
+                <SectionHeader title="Research & Presentation Experience" />
+                <Entry id="inted" title="INTED Publication & Presentation" dates="2024-2025 - Presented March 2025" location="VALENCIA, SPAIN"><li>Published and presented AI note-taking research to an international audience of 30+ academics.</li></Entry>
+                <Entry id="marist-ai" title="Marist+AI Academic Group" dates="2024-2026" location="POUGHKEEPSIE, NEW YORK"><li>Co-developed comprehensive internal and external AI frameworks with faculty.</li></Entry>
+                <Entry id="academic-conferences" title="Conferences & Projects" dates="2025" location="POUGHKEEPSIE, NEW YORK"><li><strong>ALOUD:</strong> Built a language-learning video game and explained its development process to local teachers.</li><li><strong>CURSCA & Hudson Valley AI Summit:</strong> Presented poster research to students and faculty.</li></Entry>
 
-                {/* Research and Presentational Experience */}
-                <SectionHeader title="Research and Presentation Experience" />
-                <Entry id="inted" title="Publication for International Technology, Education and Development (INTED)" pills={['Project from Winter 2024 to Spring 2025', 'Presented in March 2025']} location="VALENCIA, SPAIN">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Presented exploratory paper on AI and note-taking to an international audience of 30+ academics</li>
-                    </ul>
-                </Entry>
-                <Entry id="marist-ai" title="Marist+AI Academic Group" pills={['2024 - 2025']} location="POUGHKEEPSIE, NEW YORK">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Collaborated with faculty to develop a comprehensive internal and external AI framework</li>
-                    </ul>
-                </Entry>
-                <Entry id="academic-conferences" title="Other Academic Conferences" pills={["Various"]} location="POUGHKEEPSIE, NEW YORK">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>ALOUD (2025): Developed a language-learning video game for K–12 teachers with 2 modes and 4 languages</li>
-                        <li>CURSCA (2025) & Hudson Valley AI Summit (2025): Facilitated discussion and presented poster research</li>
-                    </ul>
-                </Entry>
+                <SectionHeader title="Education" />
+                <Entry id="marist-university" title="Marist University, Honors Student" dates="Full-Time Student, Fall 2023-Spring 2027 - Semester Abroad, Fall 2025" location="POUGHKEEPSIE, NEW YORK & MADRID, SPAIN"><li>B.A. candidate in Adolescent Education & Spanish; Applied AI minor; 3.9 GPA.</li><li>Studied abroad at Universidad Carlos III de Madrid, earning a 9.56/10 average.</li></Entry>
 
-                {/* Extracurricular Experience */}
                 <SectionHeader title="Extracurricular Experience" />
-                <Entry id="marist-circle" title="Student Newspaper, the Marist Circle" pills={['2023 - Present', 'Editor-in-Chief: May 2026 - Present']} location="POUGHKEEPSIE, NEW YORK">
-                    <ul className="list-disc pl-5 space-y-1">
-                        <li>Authored 15+ articles and mentored junior writers on editing and composition</li>
-                        <li><strong>Editor-in-Chief</strong> (May 2026 - Present): Leads editorial direction, issue planning, staff coordination, and publication standards</li>
-                        <li><strong>Co-Features Editor</strong> (2024 - May 2026): Edited up to 3 articles per issue, continued writing, distribution</li>
-                        <li><strong>Staff Writer</strong> (2023 - 2024): Pitched stories, coordinated assignments, and assisted with campus distribution</li>
-                    </ul>
-                </Entry>
+                <Entry id="marist-circle" title={<>Editor-in-Chief, <em>Marist Circle</em></>} dates="Part-Time Club, 2023-Present" location="POUGHKEEPSIE, NEW YORK"><li>Authored 30 solo and co-bylined articles and mentored junior writers.</li><li>Progressed from Staff Writer to Co-Features Editor to Editor-in-Chief.</li></Entry>
 
-                {/* Awards */}
                 <SectionHeader title="Awards" />
-                <div className="space-y-1">
-                    <div className="flex justify-between items-baseline flex-wrap">
-                        <p>Dean’s List, Marist University (2024, 2025; 4x)</p>
-                        <span className="text-xs font-mono text-light-text/90 font-bold text-right pl-4 flex-shrink-0">POUGHKEEPSIE, NEW YORK</span>
-                    </div>
-                    <div className="flex justify-between items-baseline flex-wrap">
-                        <p>Sigma Delta Pi Spanish Honors Society, Marist University (2024)</p>
-                        <span className="text-xs font-mono text-light-text/90 font-bold text-right pl-4 flex-shrink-0">POUGHKEEPSIE, NEW YORK</span>
-                    </div>
-                    <div className="flex justify-between items-baseline flex-wrap">
-                        <p>New York State Seal of Biliteracy (Spanish) and National Honors Society (2023)</p>
-                        <span className="text-xs font-mono text-light-text/90 font-bold text-right pl-4 flex-shrink-0">NANUET, NEW YORK</span>
-                    </div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                    {[["Dean's List", '6x, 2024-2026'], ['Sigma Delta Pi', '2024'], ['NYS Seal of Biliteracy (Spanish)', '2023'], ['National Honor Society', '2023']].map(([award, date]) => <div key={award} className="bg-[#3d3322] border border-[#f6c75b]/60 rounded-xl px-5 py-4"><p className="text-lg font-bold text-light-text">{award}</p><p className="mt-1 text-sm font-semibold text-[#f6c75b]">{date}</p></div>)}
                 </div>
 
-                {/* Other Skills */}
-                <SectionHeader title="Other Skills" />
-                <p className="mt-2 text-light-text/90">
-                    Generative artificial intelligence, graphic design, productivity software, development and deployment of software tools. Communicative, quick, and innovative. Open-minded to learning new tools and ideas. Enjoys and accepts challenges involving learning and developing new solutions. Readily accepts & applies feedback.
-                </p>
+                <SectionHeader title="Skills" />
+                <div className="flex flex-wrap gap-3">
+                    {['Generative AI', 'Graphic Design', 'Software Development & Deployment', 'Communication', 'Problem Solving', 'Adaptability', 'Feedback & Collaboration'].map(skill => <span key={skill} className="rounded-full bg-light-bg border border-medium-gray-bg px-4 py-2 text-base font-semibold text-light-text">{skill}</span>)}
+                </div>
             </div>
         </SubPageLayout>
     );

@@ -13,7 +13,7 @@ const SkillsPage: React.FC = () => {
         'University Work': 'digital-education',
         'Marist Circle': 'marist-circle',
         'Abroad': 'marist-university',
-        'Tutoring': 'freelance-tutoring',
+        'Smile & Learn': 'smile-learn',
         'ALOUD': 'academic-conferences',
         'BOCES TA': 'boces-ta',
     };
@@ -32,14 +32,14 @@ const SkillsPage: React.FC = () => {
     );
 
     const Pill = ({ text }: { text: string }) => (
-        <Link to={`/resume#${resumeAnchors[text] ?? 'marist-university'}`} className="pill">{text}</Link>
+        <Link to={`/resume#${resumeAnchors[text] ?? 'marist-university'}`} className="pill">{text === 'Marist Circle' ? <em>{text}</em> : text}</Link>
     );
 
     return (
-        <SubPageLayout title="My Skills" subtitle="A showcase of my technical, communicative, and leadership abilities.">
+        <SubPageLayout title="My Skills" subtitle="Tools and capabilities demonstrated through education, EdTech, research, and communication work.">
             <div>
                 <SectionHeader icon="fa-screwdriver-wrench" text="Software & Technology" />
-                <p className="text-center text-light-text mb-6">Click or hover over a software below to learn more about what I know.</p>
+                <p className="text-center text-light-text mb-6">Click or hover over a category to see the tools, audiences, and work behind it.</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
                     <div className="bg-soft-gray-bg p-6 rounded-lg border border-medium-gray-bg shadow-lg">
@@ -79,8 +79,8 @@ const SkillsPage: React.FC = () => {
                         <ul className="list-none p-0 space-y-3">
                             <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Academic Writing</span><Pill text="INTED" /><Pill text="CURSCA" /></li>
                             <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Interviewing &amp; Coordination</span><Pill text="Digital Ed Intern" /></li>
-                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Fast &amp; clear communication</span><Pill text="University Work" /></li>
-                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Journalism writing</span><Pill text="Marist Circle" /></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Faculty-facing resources</span><Pill text="University Work" /></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Journalism writing and editing</span><Pill text="Marist Circle" /></li>
                         </ul>
                         <p className="text-sm text-light-text/80 mt-4">Clear prose, editing for structure, and audience-aware tone across academic, journalistic, and instructional contexts.</p>
                     </div>
@@ -88,35 +88,35 @@ const SkillsPage: React.FC = () => {
                         <h4 className="text-xl font-bold mb-4">Spanish</h4>
                         <ul className="list-none p-0 space-y-3">
                             <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Time abroad: interpersonal communication</span><Pill text="Abroad" /></li>
-                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Experience tutoring and teaching</span><Pill text="Tutoring" /></li>
+                            <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Pre-A1 to B2 curriculum design</span><Pill text="Smile & Learn" /></li>
                             <li className="flex items-center gap-2 flex-wrap"><i className="fa-solid fa-check text-emphasis"></i><span className="font-bold">Self-directed tools for learning</span><Pill text="ALOUD" /></li>
                         </ul>
-                        <p className="text-sm text-light-text/80 mt-4">Practical Spanish experience through study abroad and tutoring; emphasis on clear, respectful interaction.</p>
+                        <p className="text-sm text-light-text/80 mt-4">Spanish used in study-abroad coursework, an internship in Madrid, curriculum design, and language-learning projects.</p>
                     </div>
                     <div className="bg-soft-gray-bg p-6 rounded-lg border border-medium-gray-bg shadow-lg md:col-span-2">
-                        <h4 className="text-xl font-bold mb-3">Communicative Basics</h4>
-                        <p className="mb-4">My time abroad, in the classroom, and working with people from a variety of backgrounds has given me the ability to communicate appropriately and respond responsibly in a variety of contexts.</p>
+                        <h4 className="text-xl font-bold mb-3">Audience-aware communication</h4>
+                        <p className="mb-4">I adapt content for faculty resources, student support, academic presentations, journalism, and cross-cultural work in Spanish and English.</p>
                         <div className="flex gap-2 flex-wrap">
                             <Pill text="BOCES TA" /> <Pill text="Marist Circle" /> <Pill text="Abroad" /> <Pill text="University Work" />
                         </div>
                     </div>
                 </div>
 
-                <SectionHeader icon="fa-compass" text="Leadership & Mindset" />
+                <SectionHeader icon="fa-compass" text="Leadership & Collaboration" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="bg-soft-gray-bg p-6 rounded-lg border border-medium-gray-bg shadow-lg">
-                        <h4 className="text-xl font-bold mb-3"><i className="fa-solid fa-user-tie mr-2"></i>Leader</h4>
-                        <p>I have experience leading teams and individuals to success, whether it's through my work at the newspaper or my experience tutoring students. I'm comfortable taking initiative and helping to define the tone or meaning of a group or project.</p>
+                        <h4 className="text-xl font-bold mb-3"><i className="fa-solid fa-user-tie mr-2"></i>Editorial leadership</h4>
+                        <p>At the <em>Marist Circle</em>, I progressed from Staff Writer to Co-Features Editor to Editor-in-Chief, editing articles, coordinating assignments, and mentoring junior writers.</p>
                     </div>
                     <div className="bg-soft-gray-bg p-6 rounded-lg border border-medium-gray-bg shadow-lg">
-                        <h4 className="text-xl font-bold mb-3"><i className="fa-solid fa-flask mr-2"></i>Experimentation</h4>
-                        <p>Trying new things is a part of my natural style of development. I look forward to using new tools, adapt quickly, and enjoy the process of creating things that stand out as innovative.</p>
+                        <h4 className="text-xl font-bold mb-3"><i className="fa-solid fa-flask mr-2"></i>Iterative development</h4>
+                        <p>I prototype and refine learning tools through user feedback, classroom needs, and documented design decisions, including Flashcardsish and the Smile &amp; Learn game creator.</p>
                     </div>
                 </div>
-                <p className="text-center text-light-text my-6">My mindset as a leader, learner, and team member all follow the principles of being involved and making myself heard while also giving others a voice and seeing things from a variety of lenses.</p>
+                <p className="text-center text-light-text my-6">Across editorial, classroom, and project work, I contribute directly while making room for feedback, different audiences, and shared decisions.</p>
                 <div className="bg-soft-gray-bg p-6 rounded-lg border border-emphasis shadow-lg" style={{ background: 'linear-gradient(180deg, rgba(255,204,153,.12), rgba(255,204,153,.05))' }}>
-                    <h4 className="text-xl font-bold mb-3"><i className="fa-solid fa-pencil mr-2"></i>DIY</h4>
-                    <p>I'm happy to explain when I think something would work better for me by using a different format, tool, or style. I'm happy to work with people and match their workflows, but I'm also able to tailor things to my needs while explaining why and documenting how along the way.</p>
+                    <h4 className="text-xl font-bold mb-3"><i className="fa-solid fa-pencil mr-2"></i>Process design</h4>
+                    <p>I can work within an established workflow or propose a clearer format, tool, or template. When I adapt a process, I explain the reasoning and document how others can use it.</p>
                 </div>
             </div>
             {/* FIX: Removed non-standard 'jsx' prop from the style tag. */}

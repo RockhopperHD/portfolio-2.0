@@ -1,88 +1,170 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import SubPageLayout from './SubPageLayout';
-import { MY_WORK_ITEMS } from '../constants';
-import { CLIPBOARD_CONTENTS } from '../constants';
+import { CLIPBOARD_CONTENTS, MY_WORK_ITEMS } from '../constants';
 import { useClipboardPanel } from '../contexts/ClipboardPanelContext';
 import { WorkItem } from '../types';
 
+type ViewMode = 'timeline' | 'list';
+
 const ExperiencePage: React.FC = () => {
-    const [sortByYear, setSortByYear] = useState(false);
+    const [viewMode, setViewMode] = useState<ViewMode>('timeline');
     const { openClipboard } = useClipboardPanel();
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+    }, [viewMode]);
 
-    const projects = useMemo(() => MY_WORK_ITEMS.filter(item => item.type === 'project').sort((a, b) => b.year.localeCompare(a.year)), []);
-    const extras = useMemo(() => MY_WORK_ITEMS.filter(item => item.type === 'extra').sort((a, b) => b.year.localeCompare(a.year)), []);
-    const sortedAll = useMemo(() => [...MY_WORK_ITEMS].sort((a, b) => b.year.localeCompare(a.year)), []);
-
-    interface GalleryItemProps {
-        item: WorkItem;
-    }
-
-    const GalleryItem: React.FC<GalleryItemProps> = ({ item }) => {
-        const handleInfoClick = () => {
-            const content = CLIPBOARD_CONTENTS.find(c => c.id === item.clipboardId);
-            if (content) {
-                openClipboard(content.content);
+    const items = useMemo(
+        () => [...MY_WORK_ITEMS].sort((a, b) => b.timelineOrder - a.timelineOrder),
+        []
+    );
+    const timelineSections = useMemo(() => {
+        return items.reduce<{ season: string; year: string; items: WorkItem[] }[]>((sections, item) => {
+            const previous = sections[sections.length - 1];
+            if (previous && previous.season === item.season && previous.year === item.year) {
+                previous.items.push(item);
+            } else {
+                sections.push({ season: item.season, year: item.year, items: [item] });
             }
-        }
+            return sections;
+        }, []);
+    }, [items]);
+
+    const openItemInfo = (item: WorkItem) => {
+        const content = CLIPBOARD_CONTENTS.find(entry => entry.id === item.clipboardId);
+        if (content) openClipboard(content.content);
+    };
+
+    const circleRoleTargets: Record<string, string> = {
+        'Staff Writer': 'circle-staff-writer',
+        'Co-Features Editor': 'circle-co-features-editor',
+        'Editor-in-Chief': 'circle-editor-in-chief',
+    };
+
+    const jumpToTimelineItem = (timelineId: string) => {
+        document.getElementById(timelineId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+
+    const renderTitle = (title: string) => {
+        const publication = 'Marist Circle';
+        const index = title.indexOf(publication);
+
+        if (index === -1) return title;
 
         return (
-            <div className="bg-soft-gray-bg p-4 rounded-lg border border-medium-gray-bg shadow-lg flex flex-col text-center relative">
-                <span className="absolute top-2 left-2 bg-emphasis text-dark-text px-2 py-0.5 rounded-full text-xs font-bold">{item.displayYear || item.year}</span>
-                <button onClick={handleInfoClick} className="absolute top-2 right-2 bg-emphasis text-dark-text w-6 h-6 rounded-full flex items-center justify-center hover:bg-emphasis-darker transition-all transform hover:scale-110">
-                    <i className="fas fa-circle-info text-sm"></i>
-                </button>
-                <div className="w-24 h-24 bg-light-bg rounded-lg flex items-center justify-center mx-auto my-4 text-emphasis-darkest">
-                    <i className={`${item.icon} text-4xl`}></i>
-                </div>
-                <h4 className="text-lg font-bold text-light-text mb-2">{item.title}</h4>
-                <p className="text-sm text-light-text/90 flex-grow mb-2">{item.desc}</p>
-            </div>
+            <>
+                {title.slice(0, index)}
+                <em>{publication}</em>
+                {title.slice(index + publication.length)}
+            </>
         );
     };
 
-    const SectionHeader = ({ icon, text }: { icon: string; text: string }) => (
-        <h2 className="text-3xl font-bold text-light-text mt-10 mb-5 border-b-2 border-emphasis-darkest pb-3 flex items-center">
-            <i className={`fa-solid ${icon} mr-4`}></i>
-            {text}
-        </h2>
+    const InfoButton = ({ item, variant = 'default' }: { item: WorkItem; variant?: 'default' | 'award' | 'education' }) => (
+        <button
+            onClick={() => openItemInfo(item)}
+            aria-label={`More information about ${item.title}`}
+            title={`More information about ${item.title}`}
+            className={`shrink-0 w-9 h-9 rounded-full border-2 flex items-center justify-center transition-all hover:scale-105 ${variant === 'award' ? 'border-[#f6c75b] text-[#f6c75b] hover:bg-[#f6c75b] hover:text-dark-text' : variant === 'education' ? 'border-[#8ab4f8] text-[#8ab4f8] hover:bg-[#8ab4f8] hover:text-dark-text' : 'border-emphasis text-emphasis hover:bg-emphasis hover:text-dark-text'}`}
+        >
+            <i className="fas fa-circle-info text-base"></i>
+        </button>
     );
 
+    const ActivityCard = ({ item, listView = false }: { item: WorkItem; listView?: boolean }) => {
+        const isAward = item.category === 'Academic Recognition';
+        const isEducationMilestone = item.category === 'Education';
+
+        if ((isAward || isEducationMilestone) && !listView) {
+            return (
+                <article className={`w-full sm:w-fit max-w-xl border px-5 py-4 sm:px-6 sm:py-5 rounded-2xl shadow-custom-light flex items-center gap-4 ${isAward ? 'border-[#f6c75b]/70 bg-[#3d3322]' : 'border-[#8ab4f8]/70 bg-[#223044]'}`}>
+                    {isAward && (
+                        <span className="w-11 h-11 rounded-full border-2 border-[#f6c75b] text-[#f6c75b] flex items-center justify-center shrink-0" aria-hidden="true">
+                            <i className="fa-solid fa-star text-base"></i>
+                        </span>
+                    )}
+                    {isEducationMilestone && (
+                        <span className="w-11 h-11 rounded-full border-2 border-[#8ab4f8] text-[#8ab4f8] flex items-center justify-center shrink-0" aria-hidden="true">
+                            <i className="fa-solid fa-graduation-cap text-base"></i>
+                        </span>
+                    )}
+                    <div className="min-w-0">
+                        <span className={`inline-flex rounded-full border px-2.5 py-1 text-xs uppercase tracking-[0.12em] font-bold ${isAward ? 'border-[#f6c75b]/70 text-[#f6c75b]' : 'border-[#8ab4f8]/70 text-[#8ab4f8]'}`}>{isAward ? 'Award' : 'Education milestone'}</span>
+                        <h3 className="font-bold text-light-text text-lg mt-1">{renderTitle(item.title)}</h3>
+                    </div>
+                    <InfoButton item={item} variant={isAward ? 'award' : 'education'} />
+                </article>
+            );
+        }
+
+        return (
+            <article id={item.timelineId} className={`bg-soft-gray-bg border border-medium-gray-bg rounded-2xl shadow-custom-light scroll-mt-8 ${listView ? 'p-5 sm:p-6 grid grid-cols-[1fr_auto] gap-4 sm:gap-6 items-start' : 'p-5 flex gap-4 sm:gap-5 items-start'}`}>
+                <div className="min-w-0 flex-1">
+                    <span className="inline-flex rounded-full border border-emphasis-darker/70 bg-light-bg px-2.5 py-1 text-xs uppercase tracking-[0.1em] text-emphasis font-bold mb-3">{item.category}</span>
+                    <h3 className="text-lg sm:text-xl font-bold text-light-text leading-tight">{renderTitle(item.title)}</h3>
+                    <p className="text-sm text-light-text/80 mt-2 leading-relaxed">{item.desc}</p>
+                    {item.progression && (
+                        <div className="mt-4 flex flex-wrap items-center gap-2" aria-label={`${item.title} role progression`}>
+                            {item.progression.map((role, index) => (
+                                <React.Fragment key={role}>
+                                    {index > 0 && <span className="text-emphasis text-sm" aria-hidden="true">→</span>}
+                                    <button
+                                        type="button"
+                                        onClick={() => jumpToTimelineItem(circleRoleTargets[role])}
+                                        className={`px-2.5 py-1 rounded-full border text-xs font-bold transition-colors hover:border-emphasis ${role === item.title.split(': ').pop() ? 'border-emphasis bg-emphasis text-dark-text' : 'border-medium-gray-bg text-light-text/80 hover:text-emphasis'}`}
+                                        title={`Jump to ${role}`}
+                                    >
+                                        {role}
+                                    </button>
+                                </React.Fragment>
+                            ))}
+                        </div>
+                    )}
+                    {listView && <p className="text-xs text-light-text/60 mt-3 font-semibold">{item.season} {item.year}</p>}
+                </div>
+                <InfoButton item={item} />
+            </article>
+        );
+    };
+
     return (
-        <SubPageLayout title="Experience" subtitle="A collection of formal work I’ve done for institutions, groups, and companies.">
-            <div className="flex justify-center items-center my-8 gap-3">
-                <span className={`font-semibold transition-colors ${!sortByYear ? 'text-light-text' : 'text-medium-gray-bg'}`}>Sort by Category</span>
-                <label className="relative inline-block w-14 h-8">
-                    <input type="checkbox" checked={sortByYear} onChange={() => setSortByYear(!sortByYear)} className="opacity-0 w-0 h-0" />
-                    <span className={`absolute cursor-pointer top-0 left-0 right-0 bottom-0 rounded-full transition-all duration-300 ${sortByYear ? 'bg-emphasis-darkest' : 'bg-medium-gray-bg'}`}>
-                        <span className={`absolute content-[''] h-6 w-6 left-1 bottom-1 bg-white rounded-full transition-all duration-300 ${sortByYear ? 'transform translate-x-6' : ''}`}></span>
-                    </span>
-                </label>
-                <span className={`font-semibold transition-colors ${sortByYear ? 'text-light-text' : 'text-medium-gray-bg'}`}>Sort by Year</span>
+        <SubPageLayout title="Portfolio" subtitle="A chronological record of education, EdTech work, research, projects, leadership, and recognition.">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-10">
+                <p className="text-light-text/80 text-center sm:text-left">
+                    You're viewing as a <span className="font-bold text-light-text">{viewMode}</span>.
+                </p>
+                <button
+                    onClick={() => setViewMode(currentView => currentView === 'timeline' ? 'list' : 'timeline')}
+                    className="text-emphasis font-bold underline underline-offset-4 hover:text-emphasis-darker transition-colors"
+                >
+                    {viewMode === 'timeline' ? 'View as a list' : 'View as a timeline'} <i className="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                </button>
             </div>
 
-            {sortByYear ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {sortedAll.map(item => <GalleryItem key={item.title} item={item} />)}
-                </div>
+            {viewMode === 'timeline' ? (
+                <section key="timeline-view" aria-label="Portfolio timeline" className="relative">
+                    <div className="hidden md:block absolute left-[12rem] top-4 bottom-4 w-px bg-medium-gray-bg"></div>
+                    <div className="space-y-9">
+                        {timelineSections.map((section, sectionIndex) => (
+                            <div key={`timeline-section-${section.season}-${section.year}-${sectionIndex}`} className="grid md:grid-cols-[10rem_1.5rem_minmax(0,1fr)] gap-4 md:gap-5 items-start">
+                                <div className="md:text-right pt-1 flex md:block items-baseline justify-between border-b border-medium-gray-bg/50 pb-2 md:border-0 md:pb-0">
+                                    <span className="block text-xl font-bold text-light-text">{section.season}</span>
+                                    <span className="block text-emphasis font-bold">{section.year}</span>
+                                </div>
+                                <div className="hidden md:flex justify-center pt-2 relative z-10">
+                                    <span className="w-5 h-5 bg-dark-gray-bg border-4 border-emphasis rounded-full"></span>
+                                </div>
+                                <div className="space-y-4">
+                                    {section.items.map((item, itemIndex) => <ActivityCard key={`timeline-item-${sectionIndex}-${itemIndex}-${item.title}`} item={item} />)}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
             ) : (
-                <>
-                    <section>
-                        <SectionHeader icon="fa-rocket" text="Projects" />
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {projects.map(item => <GalleryItem key={item.title} item={item} />)}
-                        </div>
-                    </section>
-                    <section>
-                        <SectionHeader icon="fa-photo-film" text="Extras" />
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {extras.map(item => <GalleryItem key={item.title} item={item} />)}
-                        </div>
-                    </section>
-                </>
+                <section key="list-view" aria-label="Portfolio list" className="space-y-4">
+                    {items.map((item, index) => <ActivityCard key={`list-item-${index}-${item.title}`} item={item} listView />)}
+                </section>
             )}
         </SubPageLayout>
     );

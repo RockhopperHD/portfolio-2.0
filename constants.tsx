@@ -4,25 +4,25 @@ import { PortfolioItem, SoftwareSkill, WorkItem, ClipboardContent } from './type
 
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
+    id: 'instructional-tech-intern',
+    icon: '💡',
+    title: 'IT Intern',
+    category: ['ai-research', 'teaching-mentorship'],
+    content: {
+      heading: 'Digital Education: AI Information Creator & Consultant',
+      description: "For Marist University's faculty and students, I created more than eight resources on responsible, efficient AI use. I also coordinated interviews and completed end-to-end production for eight faculty videos about generative AI.",
+      pills: ['AI in Education', 'Resource Development', 'Video Production', 'Faculty Support'],
+    },
+  },
+  {
     id: 'smile-learn',
     icon: '🦭',
     title: 'S&L Intern',
     category: ['ai-research', 'teaching-mentorship'],
     content: {
       heading: 'Smile and Learn, AINARA Internship',
-      description: "During my internship in Madrid, Spain, I dove into educational technology. I personally created a new personality for AINARA's AI chatbot, focusing on an educational tone. I also developed a tool allowing educators to create games using AI, modify them with auto-generated parameters in a customizable template system, and presented my progress directly to the CEO.",
+      description: "During my internship in Madrid, Spain, I built an education-focused personality for AINARA's AI chatbot and developed a customizable game-creation tool for educators. I presented the working prototype directly to the CEO and revised it to company standards.",
       pills: ['AI in Education', 'Chatbot Design', 'Tool Development', 'International Experience'],
-    },
-  },
-  {
-    id: 'instructional-tech-intern',
-    icon: '💡',
-    title: 'IT Intern',
-    category: ['ai-research', 'teaching-mentorship'],
-    content: {
-      heading: 'Instructional Technology Intern',
-      description: "As an AI Information Creator & Consultant on Marist University's Digital Education team, I created over 8 resources to help faculty and students understand and responsibly use artificial intelligence. A key project involved contacting, coordinating, interviewing, and editing video of 8 faculty members about their use of generative AI, creating a valuable campus resource.",
-      pills: ['AI in Education', 'Resource Development', 'Video Production', 'Faculty Support'],
     },
   },
   {
@@ -32,8 +32,23 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: ['ai-research'],
     content: {
       heading: 'AI Research (INTED & CURSCA)',
-      description: "I presented original research on AI's role in education at two major conferences. For INTED 2025 in Valencia, Spain, I co-authored a paper on AI and student note-taking and presented to an international audience of over 30 academics. For CURSCA 2025, I presented a poster detailing our findings, adapting the content for a different format and audience.",
+      description: (
+        <>
+          I co-authored research on AI and student note-taking, presented it to an international audience of more than 30 academics at INTED 2025, and adapted the findings into a CURSCA poster. View the <a href="https://library.iated.org/view/WHELAN2025OPT?re=downloadnotallowed" className="text-[#8ab4f8] hover:text-[#a7c5f9] underline" target="_blank" rel="noopener noreferrer">published paper record and abstract</a>.
+        </>
+      ),
       pills: ['Academic Research', 'AI', 'Public Speaking', 'International Conferences'],
+    },
+  },
+  {
+    id: 'aloud-game',
+    icon: '🎮',
+    title: 'ALOUD Game',
+    category: ['teaching-mentorship', 'ai-research'],
+    content: {
+      heading: 'ALOUD Language Learning Game',
+      description: "I developed and presented a language-learning video game for K-12 teachers at the ALOUD conference. With two modes and four languages, the game gives students a structured way to practice vocabulary and grammar.",
+      pills: ['Game Development', 'EdTech', 'Spanish', 'Creative Projects'],
     },
   },
   {
@@ -43,7 +58,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: ['ai-research'],
     content: {
       heading: 'Hudson Valley AI Summit',
-      description: 'At the Hudson Valley AI Summit, I presented a poster on my AI research and took an active role in facilitating a breakout discussion with Marist University faculty. This experience allowed me to share my work and engage in high-level conversations about the future of AI in our region.',
+      description: 'At the Hudson Valley AI Summit, I presented a research poster and facilitated a breakout discussion with Marist University faculty about AI in the region.',
       pills: ['Public Speaking', 'AI Research', 'Facilitation', 'Community Engagement'],
     },
   },
@@ -54,7 +69,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: ['ai-research', 'leadership-communication'],
     content: {
       heading: 'Marist+AI Academic Group',
-      description: "As a student representative, I collaborate with faculty to develop a comprehensive AI framework at Marist. My role involves contributing to an internal and external presence, creating and editing documentation, and helping guide the university's strategy for responsible and innovative AI integration.",
+      description: "As a student representative, I collaborate with faculty on Marist's AI framework, edit supporting documentation, and contribute a student perspective to responsible AI integration.",
       pills: ['AI Ethics', 'Collaboration', 'Policy Development', 'Documentation'],
     },
   },
@@ -65,7 +80,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: ['teaching-mentorship'],
     content: {
       heading: 'Teaching Assistant (Rockland BOCES)',
-      description: 'As a substitute teaching assistant, I assisted full-time teachers in instructing neurodivergent students during full, 6-hour instructional days. This role required adaptability, patience, and a commitment to supporting diverse learning needs in a classroom setting.',
+      description: 'As a substitute teaching assistant, I coordinated and facilitated full instructional days with teachers supporting neurodivergent students.',
       pills: ['Teaching', 'Special Education', 'Adaptability', 'Classroom Support'],
     },
   },
@@ -81,26 +96,15 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     },
   },
   {
-    id: 'aloud-game',
-    icon: '🎮',
-    title: 'ALOUD Game',
-    category: ['teaching-mentorship', 'ai-research'],
-    content: {
-      heading: 'ALOUD Language Learning Game',
-      description: "I single-handedly developed and presented a language-learning video game for K-12 teachers at the ALOUD conference. The game, which features 2 modes and 4 languages, is designed to be an engaging tool for students to practice vocabulary and grammar. It demonstrates an innovative application of technology in language education.",
-      pills: ['Game Development', 'EdTech', 'Spanish', 'Creative Projects'],
-    },
-  },
-  {
     id: 'marist-circle',
     icon: '📰',
     title: 'Marist Circle',
     category: ['leadership-communication'],
     content: {
-      heading: 'The Marist Circle - Editor-in-Chief & Writer',
+      heading: <><em>The Marist Circle</em> - Editor-in-Chief & Writer</>,
       description: (
         <>
-          As Editor-in-Chief, former Co-Features Editor, and Staff Writer for the university newspaper, I have a total authorship of over 15 articles. My roles have involved leading the paper, editing up to 3 articles per issue, mentoring other writers, and pitching stories. This experience honed my writing, editing, and leadership skills within a fast-paced journalistic environment. You can view my work <a href="https://www.maristcircle.com/search?q=Owen%20Whelan" className="text-[#8ab4f8] hover:text-[#a7c5f9] underline" target="_blank" rel="noopener noreferrer">here</a>.
+          I progressed from Staff Writer to Co-Features Editor to Editor-in-Chief, with 30 solo and co-bylined articles. My work includes pitching stories, editing up to three articles per issue, and mentoring junior writers. View my <a href="https://www.maristcircle.com/search?q=Owen%20Whelan" className="text-[#8ab4f8] hover:text-[#a7c5f9] underline" target="_blank" rel="noopener noreferrer"><em>Marist Circle</em> bylines</a>.
         </>
       ),
       pills: ['Writing', 'Editing', 'Leadership', 'Journalism', 'Communication'],
@@ -113,7 +117,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: ['leadership-communication'],
     content: {
       heading: 'Games Society Leadership',
-      description: "As a Subcommittee Leader, I am responsible for coordinating and helping new students integrate into gaming groups, This leadership role involves managing an online community of over 100 members, organizing events, and fostering an inclusive environment for all members.",
+      description: "As a Subcommittee Leader, I help new students join gaming groups, organize events, and support an online community of more than 100 members.",
       pills: ['Leadership', 'Community Management', 'Event Planning', 'Team Building'],
     },
   },
@@ -124,62 +128,83 @@ export const SOFTWARE_SKILLS: SoftwareSkill[] = [
     name: 'Generative AI',
     title: 'Generative AI',
     subtitle: 'ChatGPT, Codex, Hugging Face, Google AI Studio',
-    description: "I'm minoring in AI and have done published research on its effects in education. I use it to its best ability, including for speeding up my own work or producing materials for others in ways that stand out. I've educated a lot of people (in formal conferences and informal contexts) on how AI works, how to make it work for them, and where the technology is going. I believe firmly in how I'm using the technology consciously and efficiently, both for making my own work smoother and for helping others. When engaging with AI, I take human-first approaches while also recognizing its full potential.",
+    description: "Applied AI minor with published education research and experience using ChatGPT, Codex, Hugging Face, and Google AI Studio. I have created responsible-use resources for faculty and students, facilitated AI literacy workshops, and built AI-supported learning tools with human review.",
   },
   {
-    name: 'EdTech',
-    title: 'EdTech',
-    subtitle: 'Antigravity, Prototyping, Deployment, Git',
-    description: "I've had direct formal and informal experience working with educational technology software. This includes using existing tools to build materials for clients, but also for creating completely new internal tools for myself and companies. My main focus is on web apps, and I develop primarily using Antigravity.",
+    name: 'EdTech & Software Dev',
+    title: 'EdTech & Software Dev',
+    subtitle: 'Codex, Antigravity, Prototyping, Deployment, Git',
+    description: "Built and deployed browser-based learning tools for personal projects and an EdTech internship, using prototyping workflows, Git, Codex, and Antigravity. I use Codex to create, manage, revise, and deploy code while keeping the learning goals, content decisions, and final review grounded in my own instructional design judgment. Work includes a customizable game creator, CEFR-alignment tools, and the ongoing Flashcardsish study app.",
   },
   {
     name: 'Productivity',
     title: 'Productivity',
     subtitle: 'Microsoft & Google Suites, Notion',
-    description: "Whether it's collaboration tools or formal formatting, I have deep knowledge on using these programs to the fullest. This includes interactive elements, like buttons and pages the user can open and click, as well as accessibility as a priority.",
+    description: "Used Microsoft 365, Google Workspace, and Notion to coordinate faculty interviews, structure resources, collaborate on documentation, and produce accessible materials with clear navigation and formatting.",
   },
   {
     name: 'Video Editing',
     title: 'Video Editing',
     subtitle: 'Vegas, Canva',
-    description: "Through passion projects and formal work, I've learned a lot about using Vegas to make clear, attractive videos for informative and entertainment purposes. I'm able to gather resources, whether filmed on site or from the internet, and put them together. I have experience publishing videos under tight deadlines and use softwares like Vegas and Canva in tandem.",
+    description: "Produced eight faculty videos about generative AI from coordination and interviewing through editing and delivery. I use Vegas and Canva to combine recorded and sourced material into clear informational video.",
   },
   {
     name: 'Graphic Design & UX',
     title: 'Graphic Design & UX',
     subtitle: 'Canva, Affinity, GitHub, HTML',
-    description: "I've used Canva in class and in jobs to make infographics, informational documents, and posts. I've posted my Canva material to LinkedIn before and have a unique style. I take extreme care in neatness, such as lining up elements, to ensure visual clarity and accessibility to all audiences. I have experience with UX for websites and interactive tools, like building AI resources and Smile and Learn or creating my own full-stack flashcards app.",
+    description: "Used Canva and Affinity for infographics, instructional documents, and professional posts, and HTML, GitHub, and visual systems for interactive resources. UX work includes faculty AI materials, Smile & Learn tools, and the full-stack Flashcardsish app.",
   },
   {
     name: 'LMS',
     title: 'LMS',
     subtitle: 'D2L Brightspace',
-    description: "I have significant knowledge of both ends of Brightspace, a learning management system. I can not only use it efficiently as a student, but during my time as an IT intern I learned how to operate the educator side of things. I've made Brightspace units that are visually attractive while also clear and concise; specifically, I used AI to make HTML pages that stand out from the default.",
+    description: "Used D2L Brightspace from both student and educator perspectives while working with Digital Education. I built clear course units and HTML pages designed to improve structure, readability, and navigation.",
   },
 ];
 
 export const MY_WORK_ITEMS: WorkItem[] = [
-  { type: 'project', year: '2025', category: 'Research', icon: 'fas fa-file-alt', title: 'AI, Note-Taking', desc: 'Published and presented research analyzing the AI landscape and its impact on student note-taking, proposing the GAIN framework.', clipboardId: 'clipboard-project-inted' },
-  { type: 'project', year: '2025', category: 'Development', icon: 'fas fa-gamepad', title: 'ALOUD Game', desc: 'Created and presented an interactive language-learning video game to grade-school teachers at the ALOUD conference.', clipboardId: 'clipboard-project-aloud' },
-  { type: 'project', year: '2025', category: 'Development', icon: 'fas fa-laptop-code', title: 'S&L Game Creator', desc: 'For an EdTech company, I created a game creator that allows users to make and then modify their own HTML games.', clipboardId: 'clipboard-project-smile-learn' },
-  { type: 'project', year: '2024', category: 'Leadership', icon: 'fas fa-cogs', title: 'Marist+AI Group', desc: 'Student representative in the Marist+AI working group, guiding AI integration and policy at the university.', clipboardId: 'clipboard-project-marist-ai' },
-  { type: 'project', year: '2026', category: 'Writing', icon: 'fas fa-newspaper', title: 'The Marist Circle', desc: 'Editor-in-Chief and writer for my school\'s newspaper.', clipboardId: 'clipboard-extra-marist-circle' },
-  { type: 'extra', year: '2024', category: 'Honor Society', icon: 'fas fa-award', title: 'Sigma Delta Pi', desc: 'Inducted into the National Collegiate Hispanic Honor Society for dedication to Spanish language and culture.', clipboardId: 'clipboard-extra-sigma-delta-pi' },
-  { type: 'extra', year: '1', displayYear: '4x', category: 'Award', icon: 'fas fa-star', title: 'Dean\'s List', desc: 'Recognized for academic excellence, receiving Dean\'s List honors multiple times.', clipboardId: 'clipboard-extra-deans-list' },
-  { type: 'extra', year: '2023', category: 'Award', icon: 'fas fa-certificate', title: 'NYS Seal of Biliteracy', desc: 'Awarded for demonstrated proficiency in Spanish (speaking, listening, reading, writing).', clipboardId: 'clipboard-extra-seal-biliteracy' },
-  { type: 'extra', year: '2022', category: 'Honor Society', icon: 'fas fa-shield-alt', title: 'National Honor Society', desc: 'Inducted for dedication to academics and service in high school.', clipboardId: 'clipboard-extra-nhs' },
-  { type: 'extra', year: '2025', category: 'Publication', icon: 'fas fa-feather-alt', title: 'Marist Mosaic', desc: 'Poetry published in the Marist University literary arts journal.', clipboardId: 'clipboard-extra-mosaic' }
+  { type: 'project', year: '2026', season: 'Summer', timelineOrder: 20263, category: 'Professional Experience', icon: 'fas fa-chalkboard-teacher', title: 'Pre-College Teaching Assistant: AI Literacy', desc: 'Led AI literacy lessons, supported classroom management, and facilitated hands-on workshops for Marist University’s pre-college students.', clipboardId: 'clipboard-work-precollege' },
+  { type: 'project', year: '2026', season: 'Summer', timelineOrder: 20263, category: 'Professional Experience', icon: 'fas fa-lightbulb', title: 'Digital Education: AI Information Creator & Consultant', desc: 'Created responsible-AI resources for faculty and students, produced faculty interview videos, and supported university software cataloging.', clipboardId: 'clipboard-work-digital-education' },
+  { type: 'project', year: '2026', season: 'Summer', timelineOrder: 20263, category: 'Editorial Leadership', icon: 'fas fa-newspaper', title: 'The Marist Circle: Editor-in-Chief', desc: 'Advanced to Editor-in-Chief after writing 30 solo and co-bylined articles, editing up to three articles per issue, and mentoring junior writers.', timelineId: 'circle-editor-in-chief', progression: ['Staff Writer', 'Co-Features Editor', 'Editor-in-Chief'], clipboardId: 'clipboard-extra-marist-circle' },
+  { type: 'extra', year: '2026', season: 'Spring', timelineOrder: 20262, category: 'Academic Recognition', icon: 'fas fa-star', title: 'Dean\'s List', desc: 'Named to the Dean’s List for the Spring 2026 term.', clipboardId: 'clipboard-extra-deans-list' },
+  { type: 'project', year: '2026', season: 'Spring', timelineOrder: 20262, category: 'Professional Experience', icon: 'fas fa-lightbulb', title: 'Digital Education: AI Information Creator & Consultant', desc: 'Continued part-time work producing responsible-AI guidance for Marist faculty and students.', clipboardId: 'clipboard-work-digital-education' },
+  { type: 'project', year: '2025', season: 'Fall', timelineOrder: 20254, category: 'Professional Experience', icon: 'fas fa-laptop-code', title: 'Smile & Learn Intern', desc: 'Built CEFR-aligned AI tools and a game creator, shaped an education-focused chatbot personality, and designed Pre-A1 to B2 Spanish curriculum in Madrid.', clipboardId: 'clipboard-work-smile-learn' },
+  { type: 'extra', year: '2025', season: 'Fall', timelineOrder: 20254, category: 'Academic Recognition', icon: 'fas fa-star', title: 'Dean\'s List', desc: 'Named to the Dean’s List for the Fall 2025 term.', clipboardId: 'clipboard-extra-deans-list' },
+  { type: 'project', year: '2025', season: 'Throughout', timelineOrder: 20251, category: 'Professional Experience', icon: 'fas fa-school', title: 'Rockland BOCES Substitute Teaching Assistant', desc: 'Coordinated and facilitated full-day lessons with teachers supporting neurodivergent students.', clipboardId: 'clipboard-work-boces' },
+  { type: 'project', year: '2025', season: 'Summer', timelineOrder: 20253, category: 'Professional Experience', icon: 'fas fa-lightbulb', title: 'Digital Education: AI Information Creator & Consultant', desc: 'Began full-time work creating responsible-AI resources and producing faculty video features.', clipboardId: 'clipboard-work-digital-education' },
+  { type: 'project', year: '2025', season: 'Spring', timelineOrder: 20252, category: 'Research & Presentation', icon: 'fas fa-file-alt', title: 'AI, Note-Taking', desc: 'Published and presented research analyzing the AI landscape and its impact on student note-taking, proposing the GAIN framework.', clipboardId: 'clipboard-project-inted' },
+  { type: 'extra', year: '2025', season: 'Spring', timelineOrder: 20252, category: 'Academic Recognition', icon: 'fas fa-star', title: 'Dean\'s List', desc: 'Named to the Dean’s List for the Spring 2025 term.', clipboardId: 'clipboard-extra-deans-list' },
+  { type: 'project', year: '2025', season: 'Spring', timelineOrder: 20252, category: 'Editorial Leadership', icon: 'fas fa-pen-nib', title: 'The Marist Circle: Co-Features Editor', desc: 'Moved into an editorial role, editing articles, coordinating assignments, and continuing to report and write.', timelineId: 'circle-co-features-editor', progression: ['Staff Writer', 'Co-Features Editor', 'Editor-in-Chief'], clipboardId: 'clipboard-extra-marist-circle' },
+  { type: 'project', year: '2025', season: 'Spring', timelineOrder: 20252, category: 'Learning Design Project', icon: 'fas fa-gamepad', title: 'ALOUD Game', desc: 'Built and presented an interactive language-learning video game for K-12 teachers at the ALOUD conference.', clipboardId: 'clipboard-project-aloud' },
+  { type: 'project', year: '2025', season: 'Spring', timelineOrder: 20252, category: 'Research & Presentation', icon: 'fas fa-microphone-lines', title: 'CURSCA & Hudson Valley AI Summit', desc: 'Presented poster research to students and faculty and facilitated an AI-focused discussion.', clipboardId: 'clipboard-project-inted' },
+  { type: 'extra', year: '2025', season: 'Spring', timelineOrder: 20252, category: 'Creative Publication', icon: 'fas fa-feather-alt', title: 'Marist Mosaic', desc: 'Published poetry in Marist University’s literary arts journal.', clipboardId: 'clipboard-extra-mosaic' },
+  { type: 'extra', year: '2024', season: 'Fall', timelineOrder: 20244, category: 'Education', icon: 'fas fa-award', title: 'Sigma Delta Pi', desc: 'Inducted into the National Collegiate Hispanic Honor Society for Spanish language and culture.', clipboardId: 'clipboard-extra-sigma-delta-pi' },
+  { type: 'extra', year: '2024', season: 'Fall', timelineOrder: 20244, category: 'Academic Recognition', icon: 'fas fa-star', title: 'Dean\'s List', desc: 'Named to the Dean’s List for the Fall 2024 term.', clipboardId: 'clipboard-extra-deans-list' },
+  { type: 'project', year: '2024', season: 'Fall', timelineOrder: 20244, category: 'Research & Presentation', icon: 'fas fa-cogs', title: 'Marist+AI Group', desc: 'Student representative in the Marist+AI working group, guiding AI integration and policy at the university.', clipboardId: 'clipboard-project-marist-ai' },
+  { type: 'extra', year: '2024', season: 'Spring', timelineOrder: 20242, category: 'Academic Recognition', icon: 'fas fa-star', title: 'Dean\'s List', desc: 'Named to the Dean’s List for the Spring 2024 term.', clipboardId: 'clipboard-extra-deans-list' },
+  { type: 'extra', year: '2023', season: 'Spring', timelineOrder: 20232, category: 'Academic Recognition', icon: 'fas fa-certificate', title: 'NYS Seal of Biliteracy', desc: 'Awarded for demonstrated Spanish proficiency in speaking, listening, reading, and writing.', clipboardId: 'clipboard-extra-seal-biliteracy' },
+  { type: 'project', year: '2023', season: 'Spring', timelineOrder: 20232, category: 'Education', icon: 'fas fa-school', title: 'Nanuet Senior High School Graduation', desc: 'Graduated from Nanuet Senior High School.', clipboardId: 'clipboard-education-nanuet' },
+  { type: 'project', year: '2023', season: 'Fall', timelineOrder: 20234, category: 'Education', icon: 'fas fa-graduation-cap', title: 'Marist University Honors Student', desc: 'Began a B.A. in Adolescent Education & Spanish with an Applied AI minor; expected graduation Spring 2027.', clipboardId: 'clipboard-education-marist' },
+  { type: 'project', year: '2023', season: 'Fall', timelineOrder: 20234, category: 'Editorial Leadership', icon: 'fas fa-pencil', title: 'The Marist Circle: Staff Writer', desc: 'Joined the student newspaper, pitching stories, coordinating assignments, writing articles, and supporting campus distribution.', timelineId: 'circle-staff-writer', progression: ['Staff Writer', 'Co-Features Editor', 'Editor-in-Chief'], clipboardId: 'clipboard-extra-marist-circle' },
+  { type: 'extra', year: '2023', season: 'Fall', timelineOrder: 20234, category: 'Academic Recognition', icon: 'fas fa-star', title: 'Dean\'s List', desc: 'Named to the Dean’s List for the Fall 2023 term.', clipboardId: 'clipboard-extra-deans-list' },
+  { type: 'extra', year: '2022', season: 'Spring', timelineOrder: 20222, category: 'Academic Honor', icon: 'fas fa-shield-alt', title: 'National Honor Society', desc: 'Inducted for academics and service in high school.', clipboardId: 'clipboard-extra-nhs' }
 ];
 
 export const CLIPBOARD_CONTENTS: ClipboardContent[] = [
-  { id: "clipboard-project-inted", content: (<><h4>Research Paper (INTED 2025)</h4><p>I worked closely with two professors and a fellow student to create a research paper that analyzed the AI landscape and how it shapes student note-taking. My presentation went over the tools that existed, but also mentioned how educators and students can evaluate and be aware of these tools. The details on its publishing are available <a href="https://library.iated.org/view/WHELAN2025OPT?re=downloadnotallowed" className="text-[#8ab4f8] underline hover:text-[#a7c5f9]" target="_blank" rel="noopener noreferrer">here</a>, including the abstract.</p></>) },
-  { id: "clipboard-project-aloud", content: (<><h4>ALOUD Language Learning Game</h4><p>I made a game titled Partybusters! (in Spanish, ¡Guardafiesta!) in which players manage a birthday party. They admit "partygoers" by reading a list of ever-more complicated rules. The game's focus is on language acquisition as a game for reviewing vocabulary and grammar concepts. It's infinitely expandable using AI. I demoed the game to teachers at Marist University's ALOUD conference in 2025.</p></>) },
-  { id: "clipboard-project-smile-learn", content: (<><h4>Smile and Learn Game Creator</h4><p>I came into my internship at Smile and Learn (based in Madrid) with a good understanding of HTML and vibe coding, but to take it to the next level I crafted a game-development studio. Using natural language, users could make simple games then be automatically suggested edits and fixes. It was a functioning prototype that I presented on and modified to the company's standards.</p></>) },
-  { id: "clipboard-project-marist-ai", content: (<><h4>Marist+AI Academic Working Group Details</h4><p>As a student representative in the Marist + AI working group, I've helped faculty and students learn more about AI technology as well as guide them to use it effectively, with an ultimate goal of achieving a community at Marist that integrates AI in a responsible, useful way. I've also collaborated with faculty to develop an AI framework at Marist and created, edited, and commented on multiple pieces of documentation and framework material. I'm still contributing my knowledge to Marist's AI progress while I'm in university.</p></>) },
-  { id: "clipboard-extra-marist-circle", content: (<><h4>Journalistic Skills & Marist Circle Contributions</h4> <p>This is the newspaper club at Marist University, where I became Editor-in-Chief in May 2026. You can view my work <a href="https://www.maristcircle.com/search?q=Owen%20Whelan" className="text-[#8ab4f8] underline hover:text-[#a7c5f9]" target="_blank" rel="noopener noreferrer">here</a>. All of my articles are on topics that I found interesting, or just general happenings on campus. I pride myself in variety and quality writing. I published as much as two articles an issue while still keeping interesting topics at the center. As an editor, I took great care in not only polishing work of my fellow writers but mentoring others and ensuring long-term change and improvement.</p></>) },
-  { id: "clipboard-extra-sigma-delta-pi", content: (<><h4>Sigma Delta Pi</h4><p>Inducted October 2024. This is the National Honors Society for Spanish on the college level. I also received it in high school. Being a member of ΣΔΠ shows a dedication to values that make up a good student as well as someone who is knowledgeable of Spanish and Spanish-speaking cultures.</p></>) },
-  { id: "clipboard-extra-deans-list", content: (<><h4>Marist University Dean's List Details</h4><p>Currently on a perfect streak! I received the Dean's List from Marist University in both the 2023-24 and 2024-25 years, representing my dedication to academics.</p></>) },
+  { id: "clipboard-work-precollege", content: (<><h4>Marist University Summer Pre-College Teaching Assistant</h4><p>During the Summer 2026 CMPT110L AI Literacy session, I directed lessons and assisted with classroom management on artificial intelligence literacy. I also facilitated multiple interactive, hands-on workshops for pre-college students.</p></>) },
+  { id: "clipboard-work-digital-education", content: (<><h4>Marist University Digital Education</h4><p>As an AI Information Creator & Consultant, I created 8+ resources for faculty and students on responsible, efficient AI use. I also coordinated interviews and completed end-to-end production for eight faculty videos about generative AI, while supporting university software cataloging.</p></>) },
+  { id: "clipboard-work-smile-learn", content: (<><h4>Smile and Learn AI & BeBilingual Internship</h4><p>During my Fall 2025 internship in Madrid, I deployed AI tools to streamline content, including a game engine and four or more tools aligning lessons to CEFR standards and American/Spanish guidelines. I engineered AINARA’s education-focused, coding-capable personality and designed Pre-A1 to B2 Spanish curriculum with targeted learning strategies.</p></>) },
+  { id: "clipboard-work-boces", content: (<><h4>Rockland BOCES Substitute Teaching Assistant</h4><p>In this 2025 contract role, I directly coordinated and facilitated lessons with teachers for neurodivergent students during full-day sessions.</p></>) },
+  { id: "clipboard-education-marist", content: (<><h4>Marist University Honors Student</h4><p>I am pursuing a B.A. in Adolescent Education & Spanish, with a minor in Applied AI, and a 3.9 GPA. During Fall 2025, I studied abroad at Universidad Carlos III de Madrid, completing coursework and my internship in Spanish with a 9.56/10 average.</p></>) },
+  { id: "clipboard-education-nanuet", content: (<><h4>Nanuet Senior High School Graduation</h4><p>I graduated from Nanuet Senior High School in 2023, beginning the next chapter of my education at Marist University that fall.</p></>) },
+  { id: "clipboard-project-inted", content: (<><h4>Research Paper (INTED 2025)</h4><p>Working with two professors and a fellow student, I co-authored research on the AI landscape and student note-taking. We addressed both available tools and how educators and students can evaluate them. View the <a href="https://library.iated.org/view/WHELAN2025OPT?re=downloadnotallowed" className="text-[#8ab4f8] underline hover:text-[#a7c5f9]" target="_blank" rel="noopener noreferrer">published paper record and abstract</a>.</p></>) },
+  { id: "clipboard-project-aloud", content: (<><h4>ALOUD Language Learning Game</h4><p>I built Partybusters! (¡Guardafiesta! in Spanish), a language-learning game in which players manage a birthday party by reading increasingly complex admission rules. The activity reviews vocabulary and grammar, can be expanded with AI, and was demonstrated to teachers at Marist University's 2025 ALOUD conference.</p></>) },
+  { id: "clipboard-project-smile-learn", content: (<><h4>Smile and Learn Game Creator</h4><p>During my Madrid internship, I built an HTML game-development studio in which educators use natural language to create games and receive suggested edits and fixes. I presented the functioning prototype and revised it to the company's standards.</p></>) },
+  { id: "clipboard-project-marist-ai", content: (<><h4>Marist+AI Academic Working Group</h4><p>As a student representative, I collaborated with faculty on Marist's AI framework and created, edited, and reviewed supporting documentation. I contributed a student perspective to the university's work on responsible, useful AI integration.</p></>) },
+  { id: "clipboard-extra-marist-circle", content: (<><h4><em>Marist Circle</em> Writing & Editorial Leadership</h4><p>I became Editor-in-Chief in May 2026 after serving as Co-Features Editor and Staff Writer. Across 30 solo and co-bylined articles, I have pitched and reported stories while editing up to three articles per issue and mentoring junior writers. View my <a href="https://www.maristcircle.com/search?q=Owen%20Whelan" className="text-[#8ab4f8] underline hover:text-[#a7c5f9]" target="_blank" rel="noopener noreferrer"><em>Marist Circle</em> bylines</a>.</p></>) },
+  { id: "clipboard-extra-sigma-delta-pi", content: (<><h4>Sigma Delta Pi</h4><p>Inducted in October 2024 into the National Collegiate Hispanic Honor Society, recognizing commitment to Spanish language and Spanish-speaking cultures.</p></>) },
+  { id: "clipboard-extra-deans-list", content: (<><h4>Marist University Dean's List</h4><p>Named to the Dean's List across six terms from Fall 2023 through Spring 2026.</p></>) },
   { id: "clipboard-extra-seal-biliteracy", content: (<><h4>New York State Seal of Biliteracy (Spanish) Details</h4><p>Completed May 2022, awarded June 2023. Through Nanuet Senior High School, I completed the requirements for the New York State Seal of Biliteracy in 2022 and was awarded it upon my graduation in 2023. It demonstrates my proficiency in Spanish through speaking, listening, reading, and writing. My focus for the project was on technology and how it affects language and translation as a whole. When doing my project, my theme was on computer-assisted use of different languages with technologies like Google Lens and Google Translate.</p></>) },
-  { id: "clipboard-extra-nhs", content: (<><h4>National Honor Society Details</h4><p>Inducted 2022. Encompassing my dedication to academics and service in high school, I became a member of the National Honors Society in 2022. You can learn about the National Honors Society from <a href="#" className="text-[#8ab4f8] underline hover:text-[#a7c5f9]">their website</a>.</p></>) },
-  { id: "clipboard-extra-mosaic", content: (<><h4>Marist Mosaic Poem Details</h4><p>I got published in Marist Univeristy's Mosaic magazine in 2025.</p></>) }
+  { id: "clipboard-extra-nhs", content: (<><h4>National Honor Society</h4><p>Inducted in 2022 in recognition of academics and service during high school.</p></>) },
+  { id: "clipboard-extra-mosaic", content: (<><h4>Marist Mosaic Publication</h4><p>Published poetry in Marist University's Mosaic literary arts journal in 2025.</p></>) }
 ];

@@ -5,6 +5,7 @@ interface ProjectData {
     title: string;
     year: string;
     subtitle: string;
+    whatIBuilt: string;
     description: string[];
     buttonText: string;
     buttonLink: string;
@@ -16,10 +17,11 @@ const projects: ProjectData[] = [
     {
         title: "Flashcardsish",
         year: "2025 - Ongoing",
-        subtitle: "A flashcards app for the rest of us",
+        subtitle: "A study tool for learners who need more structure than a standard term-and-definition set",
+        whatIBuilt: "A feedback-informed flashcard web app with custom fields, offline use, downloadable sets, and Google OAuth cloud syncing.",
         description: [
-            "Flashcardsish is everything I wanted in a Flashcards app and more. I had used Quizlet and Knowt in the past to great lengths, but decided to add on where I thought they felt short. This started with the simple addition of the “Year” field which then expanded into Custom Fields, the program’s signature feature. Flashcardsish supports downloading your sets, offline use, cloud syncing with Google OAuth, and so much more.",
-            "Flashcardsish is my current ongoing project that forms based on user feedback, my own experiences, and updates in the education sphere. Flashcardsish features graphic design choices I made, honed UX features, and an interface you’ll actually want to study with. I accept feedback actively and have future plans to continue improving it."
+            "After using Quizlet and Knowt, I wanted a flashcard system that could capture context beyond a term and definition. I designed Flashcardsish around a Year field that expanded into Custom Fields, giving learners more control over how each study set is organized.",
+            "I continue to develop the product from user feedback, my own study experience, and changes in education technology. My role covers product direction, UX and visual decisions, feature development, and deployment."
         ],
         buttonText: "Try it",
         buttonLink: "https://flashcardsish.owenwhelan.com",
@@ -33,10 +35,11 @@ const projects: ProjectData[] = [
     {
         title: "Iquan",
         year: "2026",
-        subtitle: "A simple icon maker with portable export codes",
+        subtitle: "A quick icon editor for people who need one focused change without opening a full design suite",
+        whatIBuilt: "A browser-based icon maker with PNG export and portable icon codes for use in other applications.",
         description: [
-            "Iquan is a simple icon maker packed with features simple and complex. It's great for making small emojis for word processors or chat programs. I made it to solve an issue I had with image editing: sometimes you need just one quick change but don't want to open a full image editor. That's the problem Iquan solves.",
-            "Iquan supports exporting as PNGs, but also supports exporting icons as codes so that anyone can integrate them into their own vibe-coding apps. It was created for the Codex Creator Challenge in 2026."
+            "I built Iquan for people making small icons or emojis for documents and chat tools. It addresses a narrow image-editing problem: making a quick visual change without the setup and complexity of a full image editor.",
+            "For the 2026 Codex Creator Challenge, I designed and developed PNG export alongside a code-based format that lets users carry their icons into other applications."
         ],
         buttonText: "View Iquan",
         buttonLink: "https://iquan.owenwhelan.com",
@@ -51,10 +54,11 @@ const projects: ProjectData[] = [
     {
         title: "Connectionsish",
         year: "2025",
-        subtitle: "A simple copy of a game with QoL updates and sharing",
+        subtitle: "An original community puzzle-building tool inspired by Connections",
+        whatIBuilt: "A lightweight web app for creating, playing, and sharing custom category puzzles through links or portable codes.",
         description: [
-            "Connectionsish, based off of *Connections,* is a game-app that allows you to create and share custom Connections-esque puzzles. I used Connectionsish to play the game with friends and published it with anyone to use, where you can send puzzles as codes or links. It’s lightweight and to the point.",
-            "Connectionsish also features quality of life changes I thought were missing from the game: a “drawer” for previously wrong answers, the ability to keep playing after you lose, and more detailed score sharing. I used Connectionsish to establish my UX skills, try something new, and make a proof-of-concept for deploying AI websites like it."
+            "I built Connectionsish for friends and other puzzle fans who wanted to create and exchange their own category puzzles. Inspired by *Connections*, the app supports puzzle creation, play, and sharing through either a link or a compact code.",
+            "I also designed interaction changes for community play: a drawer for previous incorrect answers, an option to continue after a loss, and more detailed score sharing. The project became a practical exercise in UX, lightweight publishing, and deployment."
         ],
         buttonText: "Check it Out",
         buttonLink: "https://rockhopperhd.github.io/connectionsish/",
@@ -82,6 +86,9 @@ const ProjectsPage: React.FC = () => {
                                 <span className="text-lg text-gray-500 font-medium font-mono whitespace-nowrap">({project.year})</span>
                             </div>
                             <p className="text-xl text-gray-300 font-light tracking-wide">{project.subtitle}</p>
+                            <p className="mt-4 text-sm sm:text-base text-light-text/90 max-w-2xl">
+                                <span className="font-bold text-emphasis">What I built:</span> {project.whatIBuilt}
+                            </p>
 
                             <div className="w-48 h-1 bg-emphasis/30 rounded-full my-6"></div>
 

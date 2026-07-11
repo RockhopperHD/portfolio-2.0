@@ -24,9 +24,9 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                         <i className="fa-solid fa-atom"></i>
                         <span className="nav-button-label">Skills</span>
                     </button>
-                    <button onClick={() => onNavigate('/experience')} className="nav-button" title="Experience">
+                    <button onClick={() => onNavigate('/portfolio')} className="nav-button" title="Portfolio">
                         <i className="fa-solid fa-briefcase"></i>
-                        <span className="nav-button-label">Experience</span>
+                        <span className="nav-button-label">Portfolio</span>
                     </button>
                     <button onClick={() => onNavigate('/projects')} className="nav-button" title="Projects">
                         <i className="fa-solid fa-laptop-code"></i>
